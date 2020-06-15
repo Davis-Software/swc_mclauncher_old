@@ -1,0 +1,5 @@
+owner: Software City Team
+repo: https://github.com/Software-City/swc_mclauncher
+provider: github
+publishAutoUpdate: true
+updaterCacheDirName: swc_mclauncher-updater

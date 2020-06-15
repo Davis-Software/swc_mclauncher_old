@@ -1,0 +1,48 @@
+#mainpage{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./../../images/vanilla-bg.png);
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.progress{
+    transition: all 0.3;
+    height: 0;
+}
+.progress-bar{
+    height: 20px;
+}
+
+#playarea{
+    height: 80px;
+    margin-left: 15vw;
+    background-color: #252525;
+}
+#playarea .btn{
+    display: block;
+    margin: 0 auto;
+    margin-top: 8px;
+    font-size: 20px;
+    /* background-color: green; */
+    padding-left: 130px;
+    padding-right: 130px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+#playarea .btn:hover{
+    border-style: inset;
+    border-width: 2px;
+    border-radius: 10px;
+}
+
+#textarea{
+    margin-bottom: 20vh;
+}
+
+/* 
+.title{
+    background-color: #252525;
+}
+.title img{
+    width: 35vw;
+    margin: 10px;
+} */

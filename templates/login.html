@@ -1,0 +1,131 @@
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+    * {
+        font-family: 'Roboto', sans-serif;
+        padding: 0;
+        margin: 0;
+        user-select: none;
+    }
+    body{
+        background-color: #323232;
+    }
+    #content {
+        text-align: center;
+        padding-top: 20vh;
+    }
+    .resptext {
+        color: red;
+    }
+    #load{
+        margin-left: 48vw;
+        margin-top:45vh;
+    }
+    .inputs{
+        margin-left: 25vw;
+        width: 50vw;
+    }
+    </style>
+    
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/darkly/bootstrap.min.css">
+            <script>let $ = require('jquery');</script>
+            <script>require('popper.js');</script>
+            <script>require('bootstrap');</script>
+            <script>const auth = require("./../static/js/auth.js");</script>
+        </head>
+        <body>
+            <div id="load" class="spinner-border"></div>
+            <div id="main" hidden>
+                <div id="content">
+                    <h1>Log in</h1><br>
+                    <div class="form-group inputs">
+                        <input id="enter-username" class="form-control" type="email" placeholder="Email" required>
+                        <br>
+                        <input id="enter-password" class="form-control" type="password" placeholder="Password" required>
+                    </div>
+                    <p id="resp", class="resptext"></p>
+                    <br><br><br>
+                    <button class="btn btn-success" id="login-confirm-button" onclick="loginnow()">
+                        Login
+                    </button>
+                </div>
+            </div>
+    
+            <script src="./../settingshandler.js"></script>
+            <script src="../static/js/tools.js"></script>
+            <script>
+                function loadanim(bool){
+                    var loadpart = document.getElementById("load");
+                    var pagepart = document.getElementById("main");
+                    if(bool){loadpart.hidden=false;pagepart.hidden=true;}
+                    else{loadpart.hidden=true;pagepart.hidden=false;}
+                }
+                
+                if(getVal("loggedin")){loadanim(true);checklogin(auto=true);}
+                else{loadanim(false);}
+    
+                function loaddash(){
+                    window.location.href = "index.html"
+                }
+                function checklogin(auto=false){
+                    const info = document.getElementById("resp");
+                    if(getVal("loggedin") && auto){
+                        var accessToken = getVal("credentials").accessToken;
+                        var clientToken = getVal("credentials").clientToken;
+                        
+                        auth.validate(accessToken, clientToken, function(data){
+                            if(data.refresh){
+                                settings.credentials.accessToken = data.new
+                                commit()
+                            }
+                            loaddash();
+                        })
+                        
+                    }else{
+                        var username = document.getElementById("enter-username").value;
+                        var password = document.getElementById("enter-password").value;
+
+                        auth.login(username, password, function(data){
+                            loadanim(true)
+                            setVal("loggedin", true);
+                            setVal("credentials",
+                            {
+                                "email": data.user.username,
+                                "password": auth.encrypt(password),
+                                "accessToken": data.accessToken,
+                                "clientToken": data.clientToken,
+                                "username": data.selectedProfile.name,
+                                "uuid": data.selectedProfile.id,
+                                "selected_profile": data.selectedProfile,
+                                "user_properties": {}
+                            })
+                            loaddash();
+                        })
+
+                    }
+                    return;
+                }
+                function loginnow(){
+                    const info = document.getElementById("resp");
+                    var username = document.getElementById("enter-username").value;
+                    var password = document.getElementById("enter-password").value;
+                    if(username!="" && password!=""){
+                        checklogin()
+                    }else{
+                        info.innerText = "Please fill out all fields!"
+                    }
+                }
+                function logout(){
+                    setVal("loggedin", false)
+                    auth.logout(getVal("credentials").accessToken, getVal("credentials").clientToken, function(){
+                        setVal("loggedin", false)
+                        setVal("credentials", {})
+                        window.location.href = "./login.html"
+                    })
+                }
+            </script>
+        </body>
+    </html>

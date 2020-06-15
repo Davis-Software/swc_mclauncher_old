@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script>let $ = require('jquery');</script>
+        <script>require('popper.js');</script>
+        <script>require('bootstrap');</script>
+        <script>const auth = require("./../static/js/auth.js");</script>
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
+        <link rel="stylesheet" href="./../static/css/bootstrap.css">
+        <link rel="stylesheet" href="./../static/css/index.css">
+    </head>
+    <body>
+
+        <header class="frame"></header>
+
+        <section class="sidebar" id="sideb"></section>
+        <div id="mainpage"></div>
+        
+
+        <!-- Footer -->
+
+        <script src="./../settingshandler.js"></script>
+        <script src="./../static/js/tools.js"></script>
+        <script src="./../renderer/pageloader.js"></script>
+        <script>
+            var { ipcRenderer } = require('electron')
+            let current_page;
+            function logout(){
+                auth.logout(getVal("credentials").accessToken, getVal("credentials").clientToken, function(){
+                    setVal("loggedin", false)
+                    setVal("credentials", {})
+                    window.location.href = "./login.html"
+                })
+            }
+            function loadpage(page){
+                ipcRenderer.removeAllListeners()
+                // if(page != current_page){
+                //     current_page = page;
+                //     loadHTML(`pages/${page}.html`)
+                // }
+                loadHTML(`pages/${page}.html`)
+            }
+            if(!getVal("devMode")){
+                $(".frame").load("sections/frame.html")
+            }
+            $(".sidebar").load("sections/sidebar.html")
+            loadpage("startpage")
+        </script>
+    </body>
+</html>

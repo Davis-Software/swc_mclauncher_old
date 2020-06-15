@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="./../static/css/pages/startpage.css">
+
+<div id="startpage">
+    <div class="title container-fluid">
+        <img src="./../static/images/textlogo.png" alt="">
+        <h1>Welcome, <span class="username"></span></h1>
+    </div>
+    <!-- <div class="container" id="news-container">
+        <h3>News</h3>
+    </div> -->
+</div>
+
+<script>
+    $(".username").text(getVal("credentials").username)
+</script>

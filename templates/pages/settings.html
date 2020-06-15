@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="./../static/css/pages/settings.css">
+
+<div class="m-3">
+    <h3>Settings</h3>
+<hr>
+
+<div class="container">
+
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="rundetached" disabled>
+        <label class="custom-control-label" for="rundetached">Run Minecraft detatched from launcher</label>
+    </div>
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="hideOnGamestart">
+        <label class="custom-control-label" for="hideOnGamestart">Minimize launcher to tray while game is running</label>
+    </div>
+
+    <div class="d-flex justify-content-center my-4">
+        <label for="maxram">RAM &nbsp;</label>
+        <div class="w-75">
+            <input type="range" class="custom-range" id="maxram" min="1024" max="10000">
+        </div>
+        <span class="font-weight-bold text-success ml-2"><span id="maxramVAL"></span> MB</span>
+    </div>
+
+    <div class="d-flex justify-content-center mb-3">
+        <label for="mcpath" class="pt-1">MC Path &nbsp;&nbsp;</label>
+        <div class="input-group w-75">
+            <input type="text" class="form-control" id="mcpath" disabled>
+            <div class="input-group-append">
+                <button class="btn btn-warning" onclick="changeMCPath()">Change</button>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center mb-3" style="display: none !important;">
+        <label for="jvex" class="pt-1">Java &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <div class="input-group w-75">
+            <input type="text" class="form-control" id="jvex" disabled>
+            <div class="input-group-append">
+                <button class="btn btn-warning" disabled>Change</button>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center mb-3" style="display: none !important;">
+        <label for="jvmargs" class="pt-1">JVM args &nbsp;</label>
+        <div class="input-group w-75">
+            <input type="text" class="form-control" id="jvmargs">
+        </div>
+    </div>
+
+</div>
+
+
+
+    
+    <button onclick="reset(); external_loadpage(this)" page="settings" class="btn btn-danger" style="position: fixed !important; bottom: 2vh; right: 2vw;">Reset to default</button>
+
+
+
+
+    <script src="./../static/js/pages/settings.js"></script>
+</div>
