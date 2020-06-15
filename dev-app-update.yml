@@ -1,5 +1,5 @@
-owner: Davis-Software
-repo: SoftwareCityApp
+owner: Software-City
+repo: swc_mclauncher
 provider: github
 publishAutoUpdate: true
-updaterCacheDirName: softwarecity_app-updater
+updaterCacheDirName: swc_mclauncher-updater
