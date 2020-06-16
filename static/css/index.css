@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@font-face{
+    font-family: "MinecraftEvenings";
+    src: url("./../fonts/MinecraftEvenings-RBao.ttf");
+}
+
 *{
     font-family: 'Roboto', sans-serif;
     padding: 0;

@@ -4,17 +4,18 @@
     background-attachment: fixed;
     background-size: cover;
 }
-#startpage .title{
+.title{
+    margin-top: 10vh;
     padding-top: 10vh;
+    background-color:rgba(0, 0, 0, 0.5);
+}
+.title h1, h2, h3, h4{
     text-align: center;
+    padding-bottom: 20vh;
+}
+.title img{
     padding-bottom: 10vh;
-}
-#startpage img{
-    width: 60vw;
-    margin-bottom: 20vh;
-}
-
-
-#news-container{
-    margin-top: 50vh;
+    display: block;
+    margin: 0 auto;
+    width: 50vw;
 }

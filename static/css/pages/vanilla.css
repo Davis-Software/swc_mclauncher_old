@@ -18,31 +18,58 @@
     background-color: #252525;
 }
 #playarea .btn{
+    transition: all 0.3s;
     display: block;
     margin: 0 auto;
-    margin-top: 8px;
+    margin-top: 10px;
     font-size: 20px;
     /* background-color: green; */
     padding-left: 130px;
     padding-right: 130px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    height: 60px;
 }
 #playarea .btn:hover{
     border-style: inset;
     border-width: 2px;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 #textarea{
     margin-bottom: 20vh;
 }
 
-/* 
+
 .title{
-    background-color: #252525;
+    margin-top: 10vh;
+    margin-bottom: 40vh;
+    background-color:rgba(0, 0, 0, 0.5);
+}
+.title h3, h4{
+    font-family: "MinecraftEvenings";
+    text-align: center;
 }
 .title img{
-    width: 35vw;
+    display: block;
+    margin: 0 auto;
+    width: 40vw;
+}
+
+.versions{
+    background-color: rgba(24, 24, 24, 0.5);
+    border: none;
+    outline: none;
+    transition: all 0.5s;
+    position: absolute;
+    width: 300px;
+    height: 60px;
     margin: 10px;
-} */
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+}
+.versions:hover{
+    background-color: rgba(61, 61, 61, 0.6);
+}
+.verion *{
+    background-color: rgb(24, 24, 24);
+}
