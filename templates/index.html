@@ -34,11 +34,14 @@
             }
             function loadpage(page){
                 ipcRenderer.removeAllListeners()
-                // if(page != current_page){
-                //     current_page = page;
-                //     loadHTML(`pages/${page}.html`)
-                // }
-                loadHTML(`pages/${page}.html`)
+                if(getVal("devMode")){
+                    loadHTML(`pages/${page}.html`)
+                }else{
+                    if(page != current_page){
+                        current_page = page;
+                        loadHTML(`pages/${page}.html`)
+                    }
+                }
             }
             if(!getVal("devMode")){
                 $(".frame").load("sections/frame.html")

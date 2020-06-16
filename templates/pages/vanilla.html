@@ -1,16 +1,43 @@
 <link rel="stylesheet" href="./../static/css/pages/vanilla.css">
 
 <div id="textarea">
-    <!-- <div class="title">
-        <img src="./../static/images/textlogo.png" alt="">
-    </div> -->
+    <div class="title jumbotron">
+        <img src="./../static/images/mc.png" alt="">
+        <h3>JAVA Edition</h3>
+        <span class="float-right">by Mojang</span>
+    </div>
+    <div class="title jumbotron">
+        <h4>Minecraft with no mods and no presets</h4>
+        <h4>As pure as my cocaine, lol</h4>
+    </div>
+    <div class="title jumbotron">
+        <h4>Dude, why are you reading this?</h4>
+        <h4>tf is wrong with you?</h4>
+        <h4>just start the game already!</h4>
+    </div>
 </div>
 
 <div id="playarea" class="fixed-bottom">
     <div class="progress" id="progress-bar">
         <div class="progress-bar" id="start-progress"></div>
     </div>
-    <button class="btn btn-success" onclick="launch('1.15.2')" id="startbtn">PLAY</button>
+    <select class="versions custom-select" id="version-select">
+        <optgroup label="Releases">
+            <option value="1.15.2,release">1.15.2</option>
+            <option value="1.14.4,release">1.14.4</option>
+            <option value="1.13.2,release">1.13.2</option>
+            <option value="1.12.2,release">1.12.2</option>
+            <option value="1.11.2,release">1.11.2</option>
+            <option value="1.10.2,release">1.10.2</option>
+            <option value="1.9.4,release">1.9.4</option>
+            <option value="1.8.9,release" class="text-danger">1.8.9</option>
+            <option value="1.7.10,release" class="text-danger">1.7.10</option>
+        </optgroup>
+        <optgroup label="Snapshots">
+            <option value="1.16-pre6,snapshot">1.16-pre6</option>
+        </optgroup>
+    </select>
+    <button class="btn btn-success" onclick="launch()" id="startbtn">PLAY</button>
 </div>
 
 

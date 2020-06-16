@@ -37,6 +37,7 @@
             <script>const auth = require("./../static/js/auth.js");</script>
         </head>
         <body>
+            <header></header>
             <div id="load" class="spinner-border"></div>
             <div id="main" hidden>
                 <div id="content">
@@ -57,6 +58,7 @@
             <script src="./../settingshandler.js"></script>
             <script src="../static/js/tools.js"></script>
             <script>
+                $("header").load("./sections/frame.html")
                 function loadanim(bool){
                     var loadpart = document.getElementById("load");
                     var pagepart = document.getElementById("main");
