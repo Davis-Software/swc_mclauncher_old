@@ -19,7 +19,7 @@ In order to activate devMode, you can:
   
 or  
 
-- Press `Ctrl + Shift + I` in teh launcher then in the console enter `setVal("devMode", true)` and restart
+- Press `Ctrl + Shift + I` in the launcher then in the console enter `setVal("devMode", true)` and restart
 
 Special thanks to [Pierce01](https://github.com/Pierce01) for his
 [MinecraftLauncher-core](https://github.com/Pierce01/MinecraftLauncher-core)
