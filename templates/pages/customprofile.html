@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="./../static/css/pages/customprofile.css">
+<style>
+    #mainpage{
+        background-image: "{{custom-bg}}";
+    }
+</style>
+
+<div id="textarea">
+    <div class="title jumbotron">
+        <img src="./../static/images/mc.png" alt="" class="custom-icon">
+        <h3 class="custom-name">N/A</h3>
+    </div>
+</div>
+
+<div id="playarea" class="fixed-bottom">
+    <div class="progress" id="progress-bar">
+        <div class="progress-bar" id="start-progress"></div>
+    </div>
+    <div id="playarea-left" class="text-center">
+        <span class="custom-name">N/A</span> <br>
+        Created: <span class="custom-date">NaN</span>
+    </div>
+    <div id="playarea-right" class="text-center">
+        Minecraft <span class="custom-mcver">N/A</span> <br>
+        Type: <span class="custom-type">N/A</span>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-success" onclick="launch()" id="startbtn">PLAY</button>
+    </div>
+</div>
+
+
+<script src="./../static/js/pages/customprofile.js"></script>

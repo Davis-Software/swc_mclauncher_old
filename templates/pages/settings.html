@@ -11,6 +11,10 @@
         <label class="custom-control-label" for="rundetached">Run Minecraft detatched from launcher</label>
     </div>
     <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="closeonend">
+        <label class="custom-control-label" for="closeonend">Close launcher with Minecraft</label>
+    </div>
+    <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="hideOnGamestart">
         <label class="custom-control-label" for="hideOnGamestart">Minimize launcher to tray while game is running</label>
     </div>
@@ -53,7 +57,7 @@
 
 
     
-    <button onclick="reset(); external_loadpage(this)" page="settings" class="btn btn-danger" style="position: fixed !important; bottom: 2vh; right: 2vw;">Reset to default</button>
+    <button onclick="reset(); external_loadpage(this)" page="settings" force-data class="btn btn-danger" style="position: fixed !important; bottom: 2vh; right: 2vw;">Reset to default</button>
 
 
 
