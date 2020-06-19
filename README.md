@@ -10,7 +10,7 @@ Start your Minecraft via a beatiful and easy to use Interface and play all Softw
 
 ![pic1](_gitresources/preview2.png)
 
-## activate dev-mode
+## Activate Dev-mode
 
 In order to activate devMode, you can:
 
@@ -21,8 +21,9 @@ or
 
 - Press `Ctrl + Shift + I` in the launcher then in the console enter `setVal("devMode", true)` and restart
 
-Special thanks to [Pierce01](https://github.com/Pierce01) for his
-[MinecraftLauncher-core](https://github.com/Pierce01/MinecraftLauncher-core)
-
 ## Support
 If you have a question you want to ask us, just use our [Support page](https://software-city.org/support) 
+
+##People
+Special thanks to [Pierce01](https://github.com/Pierce01) for his
+[MinecraftLauncher-core](https://github.com/Pierce01/MinecraftLauncher-core)
