@@ -26,12 +26,10 @@ function createWindow () {
             resizable: false,
             webPreferences: {
                 nodeIntegration: true,
-                webviewTag: true,
-                contextIsolation: false
+                webviewTag: true
             },
             frame: sethandle.getVal("devMode")
         });
-        exports.window = win;
         app.allowRendererProcessReuse = true;
         if(sethandle.getVal("devMode")){
             menuhandle.buildMenu();
@@ -52,6 +50,7 @@ function createWindow () {
                     if (err) {
                         win.loadFile('templates/offline.html');
                     } else {
+                        win.webContents.session.clearCache()
                         win.loadFile("templates/login.html");
                     }
                 });
@@ -102,7 +101,27 @@ autoUpdater.on('update-downloaded', info => {
     autoUpdater.quitAndInstall();
 });
 
-app.requestSingleInstanceLock()
+function openedByUrl(url) {
+    if (url) {
+      win.webContents.send('openedByUrl', url);
+    }
+}
+
+if (app.requestSingleInstanceLock()) {
+    app.on('second-instance', (e, argv) => {
+        if (process.platform === 'win32') {
+            openedByUrl(argv.find((arg) => arg.startsWith('swc_mclauncher:')));
+        }
+        if (win) {
+            if (win.isMinimized()) win.restore();
+            win.focus();
+        }
+    }
+)};
+
+if (!app.isDefaultProtocolClient('swc_mclauncher')) {
+    app.setAsDefaultProtocolClient('swc_mclauncher');
+}
 
 
 const sendToWindow = (event, data="") => {
@@ -111,5 +130,8 @@ const sendToWindow = (event, data="") => {
     }
 };
 ipcMain.on("startmc", function(ev, args){
-    launcher.launch(sendToWindow, args)
+    launcher.launchVanilla(sendToWindow, args)
+})
+ipcMain.on("startmoddedmc", function(ev, args){
+    launcher.launchModded(sendToWindow, args)
 })

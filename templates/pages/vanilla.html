@@ -22,20 +22,9 @@
         <div class="progress-bar" id="start-progress"></div>
     </div>
     <select class="versions custom-select" id="version-select">
-        <optgroup label="Releases">
-            <option value="1.15.2,release">1.15.2</option>
-            <option value="1.14.4,release">1.14.4</option>
-            <option value="1.13.2,release">1.13.2</option>
-            <option value="1.12.2,release">1.12.2</option>
-            <option value="1.11.2,release">1.11.2</option>
-            <option value="1.10.2,release">1.10.2</option>
-            <option value="1.9.4,release">1.9.4</option>
-            <option value="1.8.9,release" class="text-danger">1.8.9</option>
-            <option value="1.7.10,release" class="text-danger">1.7.10</option>
-        </optgroup>
-        <optgroup label="Snapshots">
-            <option value="1.16-pre6,snapshot">1.16-pre6</option>
-        </optgroup>
+        <optgroup label="Latest" id="opt-latest"> </optgroup>
+        <optgroup label="Releases" id="opt-releases"> </optgroup>
+        <optgroup label="Snapshots" id="opt-snapshot"> </optgroup>
     </select>
     <button class="btn btn-success" onclick="launch()" id="startbtn">PLAY</button>
 </div>

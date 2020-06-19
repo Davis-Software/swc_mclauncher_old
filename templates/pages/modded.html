@@ -1,1 +1,35 @@
--
+<link rel="stylesheet" href="./../static/css/pages/modded.css">
+<style>
+    #mainpage{
+        background-image: "{{mod-bg}}";
+    }
+</style>
+
+<div id="textarea">
+    <div class="title jumbotron">
+        <img src="https://projects.software-city.org/static/img/no-image.jpg" alt="" class="mod-icon">
+        <h3 class="mod-name">N/A</h3>
+        <span class="float-right">by <span class="mod-creator"></span></span>
+    </div>
+    <div class="mc-cont jumbotron">
+        <p class="mod-desc">No description</p>
+    </div>
+</div>
+
+<div id="playarea" class="fixed-bottom">
+    <div class="progress" id="progress-bar">
+        <div class="progress-bar" id="start-progress"></div>
+    </div>
+    <div id="playarea-left" class="text-center">
+        <span class="mod-name">N/A</span> <br>
+        Version: <span class="mod-version">NaN</span>
+    </div>
+    <div id="playarea-right" class="text-center">
+        Minecraft <span class="mod-mcver">N/A</span> <br>
+        Type: <span class="mod-type">N/A</span>
+    </div>
+    <button class="btn btn-success" onclick="launch()" id="startbtn" disabled>PLAY</button>
+</div>
+
+
+<script src="./../static/js/pages/modded.js"></script>

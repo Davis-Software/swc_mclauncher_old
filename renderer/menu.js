@@ -7,23 +7,16 @@ const template = [
     label: 'View',
     submenu: [
       { role: 'reload' },
-      // { role: 'forcereload' },
       { type: 'separator' },
       { role: 'togglefullscreen' }
     ]
   },
-  // {
-  //   label: 'Window',
-  //   submenu: [
-  //     { role: 'toggledevtools' }
-  //   ]
-  // },
   {
     role: 'help',
     submenu: [
       {
         label: 'Learn More',
-        click: async () => {
+        click: async() => {
           const { shell } = require('electron')
           await shell.openExternal('https://projects.software-city.org/resources/electron/interfaceapp')
         }
