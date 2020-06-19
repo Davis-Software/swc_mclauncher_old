@@ -24,6 +24,6 @@ or
 ## Support
 If you have a question you want to ask us, just use our [Support page](https://software-city.org/support) 
 
-##People
+## People
 Special thanks to [Pierce01](https://github.com/Pierce01) for his
 [MinecraftLauncher-core](https://github.com/Pierce01/MinecraftLauncher-core)
