@@ -1,6 +1,5 @@
-# swc_mclauncher
+# Software City Minecraft Launcher
 
-More detailed readme will follow...
 
 ![pic1](_gitresources/preview1.png)
 
