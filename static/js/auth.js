@@ -1,8 +1,21 @@
 const authpath = 'https://interface.software-city.org/api?mode=apprest&data=auth_mojang'
-const minecraftAgent = 
-{
-    name: 'Minecraft',
-    version: 1
+
+
+
+/**
+ * Login from the config file detailes to mojang and get an accesskey
+ * @param {Function} callback callback returns data 
+ */
+function loginFromConfig(callback){
+    $.post(
+        authpath + "&cmd=login",
+        {
+            username: getVal("credentials").email,
+            password: decrypt(getVal("credentials").password)
+        },
+        callback,
+        "json"
+    ).fail(function(data){console.log("error: ", data)})
 }
 
 
@@ -40,9 +53,14 @@ function validate(token, clienttoken, callback){
         callback,
         "json"
     ).fail(function(data){
+        if(getVal("loggedin")){
+            loginFromConfig(
+                function(data){
+                    window.location.reload()
+                }
+            )
+        }
         console.log("error: ", data)
-        setVal("loggedin", false)
-        window.location.reload()
     })
 }
 
@@ -59,23 +77,14 @@ function logout(token, clienttoken, callback){
     ).fail(function(data){console.log("error: ", data)})
 }
 
-
-
+const algorithm = 'aes-128-cbc'
 
 function encrypt(text) {
-    let cipher = crypto.createCipheriv(algorithm, Buffer.from(key), iv);
-    let encrypted = cipher.update(text);
-    encrypted = Buffer.concat([encrypted, cipher.final()]);
-    return { iv: iv.toString('hex'), encryptedData: encrypted.toString('hex') };
+    return text
 }
 
 function decrypt(text) {
-    let iv = Buffer.from(text.iv, 'hex');
-    let encryptedText = Buffer.from(text.encryptedData, 'hex');
-    let decipher = crypto.createDecipheriv(algorithm, Buffer.from(key), iv);
-    let decrypted = decipher.update(encryptedText);
-    decrypted = Buffer.concat([decrypted, decipher.final()]);
-    return decrypted.toString();
+    return text
 }
 
 

@@ -16,6 +16,24 @@
 
 
 
+#logo-and-text{
+    position: absolute;
+    height: 32px;
+    -webkit-app-region: drag;
+}
+#logo-and-text img{
+    height: 20px;
+    margin-top: 6px;
+    margin-left: 6px;
+}
+#logo-and-text span{
+    position: absolute;
+    width: max-content;
+    margin-top: 6px;
+    margin-left: 6px;
+    font-size: 15px;
+    font-weight: 10;
+}
 
 #titlebar {
     padding: 4px;

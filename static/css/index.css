@@ -23,64 +23,6 @@ body {
     cursor: pointer;
 }
 
-/* sidebar */
-#sidebar{
-    position: fixed;
-    height: 100vh;
-    width: 15vw;
-}
-
-.sidebar p {
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
-}
-
-.sidebar a, a:hover, a:focus {
-    color: inherit;
-    text-decoration: none;
-    transition: all 0.3s;
-}
-
-#sidebar {
-    background: #181818;
-    transition: all 0.3s;
-}
-
-#sidebar ul.components {
-    padding: 20px 0;
-    border-top: 1px solid #000000;
-}
-
-#sidebar ul p {
-    padding: 25px;
-}
-
-#sidebar ul li a {
-    padding: 10px;
-    font-size: 1.1em;
-    display: block;
-    margin: 2px;
-}
-
-#sidebar ul li a:hover {
-    background: #213549;
-    border-radius: 10px;
-}
-
-#sidebar ul li.active > a, a[aria-expanded="true"] {
-    padding-left: 30px;
-    color: rgb(255, 255, 255);
-    background: #375a7f;
-    border-radius: 10px;
-    padding: 12px;
-}
-.sidebar ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #191919;
-}
 
 /* mainpage */
 #mainpage{
