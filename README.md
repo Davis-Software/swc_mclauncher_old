@@ -10,7 +10,9 @@ More detailed readme will follow...
 
 In order to activate devMode, you can:
 
-1. Edit the file `%APPDATA%\SWC Minecraft Launcher\settings.json` and
+- Edit the file `%APPDATA%\SWC Minecraft Launcher\settings.json` and
   change `devMode` to `true` at the end of the file
   
-2. Press `Ctrl + Shift + I` then in the console enter `setVal("devMode", true)` and restart
+or  
+
+- Press `Ctrl + Shift + I` in teh launcher then in the console enter `setVal("devMode", true)` and restart
