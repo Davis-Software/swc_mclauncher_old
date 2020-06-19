@@ -92,7 +92,7 @@ ipcRenderer.on("mc-debug", function(ev, data){
             launchbtn.hidden = false;
             version_select.hidden = false
             if(getGameVal("hideOnGamestart")){
-                // remote.getCurrentWindow().hide()
+                remote.getCurrentWindow().hide()
             }
         }, 5000)
     }
