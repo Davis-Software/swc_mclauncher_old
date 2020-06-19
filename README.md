@@ -26,4 +26,5 @@ If you have a question you want to ask us, just use our [Support page](https://s
 
 ## People
 Special thanks to [Pierce01](https://github.com/Pierce01) for his
-[MinecraftLauncher-core](https://github.com/Pierce01/MinecraftLauncher-core)
+[MinecraftLauncher-core](https://github.com/Pierce01/MinecraftLauncher-core) and
+his amazing Support on his [Discord](https://discord.gg/8uYVbXP)
