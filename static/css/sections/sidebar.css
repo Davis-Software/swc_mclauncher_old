@@ -39,6 +39,8 @@
     display: block;
     margin: 2px;
     color: gray;
+    transition: all 0.3s;
+    cursor: not-allowed;
 }
 
 #sidebar ul li a:hover {

@@ -1,0 +1,68 @@
+#mainpage{
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.progress{
+    transition: all 0.3;
+    height: 0;
+}
+.progress-bar{
+    height: 20px;
+}
+
+#playarea{
+    height: 80px;
+    margin-left: 15vw;
+    background-color: #252525;
+}
+#playarea .btn-group{
+    position: absolute;
+    margin-left: 385px;
+    margin-top: 10px;
+}
+#playarea .btn{
+    transition: all 0.3s;
+    font-size: 20px;
+    /* background-color: green; */
+    padding-left: 130px;
+    padding-right: 130px;
+    height: 60px;
+}
+#playarea .btn:hover{
+    border-style: inset;
+    border-width: 2px;
+    border-radius: 8px;
+}
+
+
+.title{
+    margin-top: 10vh;
+    background-color:rgba(0, 0, 0, 0.5);
+}
+.title h3, h4{
+    font-family: "MinecraftEvenings";
+    text-align: center;
+}
+.title img{
+    display: block;
+    margin: 0 auto;
+    height: 20vh;
+}
+.text-center{
+    text-align: center;
+}
+
+#playarea-left{
+    position: absolute;
+    padding-top: 16px;
+    height: 80px;
+    width: 380px;
+}
+#playarea-right{
+    position: absolute;
+    padding-top: 16px;
+    height: 80px;
+    width: 380px;
+    left: 690px
+}

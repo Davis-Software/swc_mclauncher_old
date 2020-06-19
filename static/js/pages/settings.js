@@ -5,6 +5,7 @@ var gamesets = getGameVal("gameOptions")
 
 var rundetached = document.getElementById("rundetached")
 var hideOnGamestart = document.getElementById("hideOnGamestart")
+var closeonend = document.getElementById("closeonend")
 
 var maxram = document.getElementById("maxram")
 
@@ -16,6 +17,7 @@ var jvmargs = document.getElementById("jvmargs")
 
 rundetached.checked = gamedata.rundetached
 hideOnGamestart.checked = gamedata.hideOnGamestart
+closeonend.checked = gamedata.closeonend
 
 rundetached.addEventListener("click", function(){
     gamedata.rundetached = rundetached.checked

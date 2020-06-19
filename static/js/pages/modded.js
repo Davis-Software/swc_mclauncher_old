@@ -25,29 +25,42 @@ document.getElementById("mainpage").innerHTML = document.getElementById("mainpag
 
 var { ipcRenderer } = require('electron')
 var remote = require("electron").remote
+var fs = require("fs-extra")
+
+function clearMods(is, will){
+    var mods = path.join(getGameVal("gameOptions").mcPath, "mods")
+    var conf = path.join(getGameVal("gameOptions").mcPath, "config")
+    if(is != will){
+        if(fs.existsSync(mods)){fs.removeSync(mods)}
+        if(fs.existsSync(conf)){fs.removeSync(conf)}
+        var oldmoddata = getMod(getGameVal("lastmodpack"))
+        try {
+            var extra = oldmoddata.extrafiles
+        } catch {
+            var extra = undefined
+        }
+        if(extra != undefined){
+            for(let file of extra){
+                var run = path.join(getGameVal("gameOptions").mcPath, file)
+                if(fs.existsSync(run)){fs.removeSync(run)}
+            }
+        }
+    }
+}
 
 function launch(){
-    version = [moddata.mcVersion, "forge"]
+    clearMods(getGameVal("lastmodpack"), moddata.id)
+    setGameVal("lastmodpack", moddata.id)
+    version = [moddata.mcVersion, moddata.type]
     ipcRenderer.send('startmoddedmc', {
         credentials : getVal("credentials"),
         mcPath : getGameVal("gameOptions").mcPath,
         XmxRam : getGameVal("gameOptions").XmxRam,
-        // package: `https://projects.software-city.org/resources/minecraft/modded/modpacks/${moddata.id}.zip`,
-        package: `D:/Bibliotheken/Desktop/Workspace/modpack/modpack.zip`,
+        package: `https://projects.software-city.org/resources/minecraft/modded/modpacks/${moddata.id}.zip`,
         forge: path.join(getGameVal("gameOptions").mcPath, `bin/forge-${moddata.mcVersion}.jar`),
         version: version[0],
         type: version[1]
     })
-    // version = ["1.7.10", "release"]
-    // ipcRenderer.send('startmoddedmc', {
-    //     credentials : getVal("credentials"),
-    //     mcPath : getGameVal("gameOptions").mcPath,
-    //     XmxRam : getGameVal("gameOptions").XmxRam,
-    //     package: "https://www.dropbox.com/s/z2mlkvyv83s7yxh/dungeonruler.zip?dl=1",
-    //     forge: path.join(getGameVal("gameOptions").mcPath, "bin/modpack.jar"),
-    //     version: version[0],
-    //     type: version[1]
-    // })
 }
 
 var launchbtn = document.getElementById("startbtn")

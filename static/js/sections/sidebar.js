@@ -26,13 +26,13 @@ function populateSidebarMods(callback){
     }).fail(alert)
 }
 function populateSidebarCustoms(callback){
-    var data = []
+    var data = getGameVal("profiles"); if(data==undefined){data=[]}
     var profileli = document.getElementById("custom-section")
     for(profile of data){
         profileli.innerHTML += 
         `
         <li class="liobj">
-            <a href="#" page="custom" profile=${profile.id}>${profile.name}</a>
+            <a href="#" page="customprofile" profile=${profile.id}>${profile.name}</a>
         </li>
         `
     }
@@ -68,10 +68,16 @@ populateSidebarMods(
     function(){
         populateSidebarCustoms(function(){
             for(let x of children()){
-                if(x.children[0].getAttribute("page") === "modded"){
-                    x.setAttribute("onclick", "sidebar_loadmodpage(this)")
-                }else{
-                    x.setAttribute("onclick", "sidebar_loadpage(this)")
+                switch (x.children[0].getAttribute("page")) {
+                    case "modded":
+                        x.setAttribute("onclick", "sidebar_loadmodpage(this)")
+                        break;
+                    case "customprofile":
+                        x.setAttribute("onclick", "sidebar_loadcustompage(this)")
+                        break;
+                    default:
+                        x.setAttribute("onclick", "sidebar_loadpage(this)")
+                        break;
                 }
             }
         })
@@ -82,7 +88,7 @@ function sidebar_loadpage(btn){
     var btns = children()
     for(let x of btns){x.classList.remove("active")}
     btn.classList.add("active")
-    loadpage(btn.children[0].getAttribute("page"))
+    loadpage(btn.children[0].getAttribute("page"), btn.hasAttribute("force-data"))
 }
 
 function sidebar_loadmodpage(btn){
@@ -90,11 +96,19 @@ function sidebar_loadmodpage(btn){
     for(let x of btns){x.classList.remove("active")}
     btn.classList.add("active")
     tempdata.loadmodpage = btn.children[0].getAttribute("modpack")
-    loadpage("modded")
+    loadpage("modded", btn.hasAttribute("force-data"))
+}
+
+function sidebar_loadcustompage(btn){
+    var btns = children()
+    for(let x of btns){x.classList.remove("active")}
+    btn.classList.add("active")
+    tempdata.loadcustompage = btn.children[0].getAttribute("profile")
+    loadpage("customprofile", btn.hasAttribute("force-data"))
 }
 
 function external_loadpage(btn){
     var btns = children()
     for(let x of btns){x.classList.remove("active")}
-    loadpage(btn.getAttribute("page"))
+    loadpage(btn.getAttribute("page"), btn.hasAttribute("force-data"))
 }

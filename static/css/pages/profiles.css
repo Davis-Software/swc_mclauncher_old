@@ -1,0 +1,21 @@
+#mainpage{
+    background-color: #191919;
+    border-left: solid;
+    border-width: 1px;
+    border-color: #333333;
+}
+.custom-checkbox{
+    margin-bottom: 8px;
+}
+.list-group a{
+    height: 60px;
+}
+.list-group a span{
+    font-size: 20px;
+}
+.input-group{
+    width: 40vw;
+}
+#edit-version *{
+    background-color: rgb(24, 24, 24);
+}
