@@ -1,5 +1,4 @@
 # Software City Minecraft Launcher
-![logo](static/images/textlogo.png)
 ![GitHub](https://img.shields.io/github/license/Software-City/swc_mclauncher?style=flat-square)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/Software-City/swc_mclauncher?style=flat-square)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/Software-City/swc_mclauncher?style=flat-square)
