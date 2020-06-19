@@ -95,8 +95,10 @@ function sidebar_loadmodpage(btn){
     var btns = children()
     for(let x of btns){x.classList.remove("active")}
     btn.classList.add("active")
-    tempdata.loadmodpage = btn.children[0].getAttribute("modpack")
-    loadpage("modded", btn.hasAttribute("force-data"))
+    if(tempdata.loadmodpage != btn.children[0].getAttribute("modpack")){
+        tempdata.loadmodpage = btn.children[0].getAttribute("modpack")
+        loadpage("modded", true)
+    }
 }
 
 function sidebar_loadcustompage(btn){
