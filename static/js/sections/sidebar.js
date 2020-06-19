@@ -95,10 +95,8 @@ function sidebar_loadmodpage(btn){
     var btns = children()
     for(let x of btns){x.classList.remove("active")}
     btn.classList.add("active")
-    if(tempdata.loadmodpage != btn.children[0].getAttribute("modpack")){
-        tempdata.loadmodpage = btn.children[0].getAttribute("modpack")
-        loadpage("modded", true)
-    }
+    tempdata.loadmodpage = btn.children[0].getAttribute("modpack")
+    loadpage("modded", true)
 }
 
 function sidebar_loadcustompage(btn){
