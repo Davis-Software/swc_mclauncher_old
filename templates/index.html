@@ -32,13 +32,13 @@
                     window.location.href = "./login.html"
                 })
             }
-            function loadpage(page, override=false){
+            function loadpage(page, override=false, subpage){
                 ipcRenderer.removeAllListeners()
                 if(getVal("devMode")){
                     loadHTML(`pages/${page}.html`)
                 }else{
                     if(page != current_page || override){
-                        current_page = page;
+                        if(subpage!=undefined){current_page=subpage}else{current_page = page}
                         loadHTML(`pages/${page}.html`)
                     }
                 }
