@@ -63,7 +63,7 @@ exports.launchModded = function launchModded(send, args){
         },
         memory: {
             max: String(args.XmxRam),
-            min: "1024"
+            min: String(Math.round(args.XmxRam-1024))
         }
     }
     

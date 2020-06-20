@@ -96,7 +96,7 @@ function sidebar_loadmodpage(btn){
     for(let x of btns){x.classList.remove("active")}
     btn.classList.add("active")
     tempdata.loadmodpage = btn.children[0].getAttribute("modpack")
-    loadpage("modded", true)
+    loadpage("modded", btn.hasAttribute("force-data"), btn.children[0].getAttribute("modpack"))
 }
 
 function sidebar_loadcustompage(btn){
@@ -104,7 +104,7 @@ function sidebar_loadcustompage(btn){
     for(let x of btns){x.classList.remove("active")}
     btn.classList.add("active")
     tempdata.loadcustompage = btn.children[0].getAttribute("profile")
-    loadpage("customprofile", btn.hasAttribute("force-data"))
+    loadpage("customprofile", btn.hasAttribute("force-data"), btn.children[0].getAttribute("profile"))
 }
 
 function external_loadpage(btn){
