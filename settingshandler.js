@@ -37,15 +37,19 @@ var def_config = {
 }
 function def_gameconfig(){
     return {
-        "hideOnGamestart": false,
+        "hideOnGamestart": true,
         "rundetached": true,
+        "closeonend": false,
         "resolution": [800, 400],
         "gameOptions": {
-            "XmxRam": 2048,
+            "XmxRam": 4096,
             "mcPath": path.join(AppData, ".minecraft_swc"),
             "jPath": "~auto~",
             "jArguments": "-XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M"
-        }
+        },
+        "profiles": [
+            
+        ]
     }
 }
 
