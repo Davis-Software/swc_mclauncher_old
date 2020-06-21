@@ -10,17 +10,6 @@ Start your Minecraft via a beatiful and easy to use Interface and play all Softw
 
 ![pic1](_gitresources/preview2.png)
 
-## Activate Dev-mode
-
-In order to activate devMode, you can:
-
-- Edit the file `%APPDATA%\SWC Minecraft Launcher\settings.json` and
-  change `devMode` to `true` at the end of the file
-  
-or  
-
-- Press `Ctrl + Shift + I` in the launcher then in the console enter `setVal("devMode", true)` and restart
-
 ## Download
 ### Requirements
 - Winodws 10 64bit
@@ -36,6 +25,13 @@ or
 - Run `npm install` in that directory to install dependencies
 - Run `npm start` to start the launcher
 - Run `npm dist` to package the launcher to a .exe file
+
+## Activate Dev-mode
+In order to activate devMode, you can:
+
+- Edit the file `%APPDATA%\SWC Minecraft Launcher\settings.json` and change `devMode` to `true` at the end of the file
+or
+- Press `Ctrl + Shift + I` in the launcher then in the console enter `setVal("devMode", true)` and restart
 
 ## Support
 If you have a question you want to ask us, just use our [Support page](https://software-city.org/support) 
