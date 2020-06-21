@@ -28,7 +28,7 @@ or
 - Minecraft account, duh
 
 ### pre-packaged installer
-- Go to [releases]() page and download the `SWC Minecraft Launcher Setup x.x.x.exe` file
+- Go to [releases](https://github.com/Software-City/swc_mclauncher/releases/latest) page and download the `SWC Minecraft Launcher Setup x.x.x.exe` file
 - Run the installer
 
 ### from source
