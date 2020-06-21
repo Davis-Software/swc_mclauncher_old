@@ -21,6 +21,22 @@ or
 
 - Press `Ctrl + Shift + I` in the launcher then in the console enter `setVal("devMode", true)` and restart
 
+## Download
+### Requirements
+- Winodws 10 64bit
+- Java 64-Bit
+- Minecraft account, duh
+
+### pre-packaged installer
+- Go to [releases]() page and download the `SWC Minecraft Launcher Setup x.x.x.exe` file
+- Run the installer
+
+### from source
+- Clone and extract the source files to a directory
+- Run `npm install` in that directory to install dependencies
+- Run `npm start` to start the launcher
+- Run `npm dist` to package the launcher to a .exe file
+
 ## Support
 If you have a question you want to ask us, just use our [Support page](https://software-city.org/support) 
 
