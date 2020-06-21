@@ -1,8 +1,6 @@
 const { Client } = require('minecraft-launcher-core');
-const path = require("path")
 
 const launcher = new Client();
-
 exports.launchVanilla = function launchVanila(send, args){
     send("mc-init")
     var credentials = args.credentials
@@ -23,7 +21,7 @@ exports.launchVanilla = function launchVanila(send, args){
         },
         memory: {
             max: String(args.XmxRam),
-            min: "1024"
+            min: String(Math.round(args.XmxRam-1024))
         }
     }
     

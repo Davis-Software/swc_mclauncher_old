@@ -6,7 +6,7 @@ const authpath = 'https://interface.software-city.org/api?mode=apprest&data=auth
  * Login from the config file detailes to mojang and get an accesskey
  * @param {Function} callback callback returns data 
  */
-function loginFromConfig(callback){
+function loginFromConfig(callback, fail){
     $.post(
         authpath + "&cmd=login",
         {
@@ -15,7 +15,7 @@ function loginFromConfig(callback){
         },
         callback,
         "json"
-    ).fail(function(data){console.log("error: ", data)})
+    ).fail(fail)
 }
 
 
@@ -25,7 +25,7 @@ function loginFromConfig(callback){
  * @param {string} password login password
  * @param {Function} callback callback returns data 
  */
-function login(username, password, callback){
+function login(username, password, callback, fail){
     $.post(
         authpath + "&cmd=login",
         {
@@ -34,7 +34,7 @@ function login(username, password, callback){
         },
         callback,
         "json"
-    ).fail(function(data){console.log("error: ", data)})
+    ).fail(fail)
 }
 
 /**
@@ -43,7 +43,7 @@ function login(username, password, callback){
  * @param {string} clienttoken clienttoken
  * @param {Function} callback callback function
  */
-function validate(token, clienttoken, callback){
+function validate(token, clienttoken, callback, fail){
     $.post(
         authpath + `&cmd=validate`,
         {
@@ -52,20 +52,11 @@ function validate(token, clienttoken, callback){
         },
         callback,
         "json"
-    ).fail(function(data){
-        if(getVal("loggedin")){
-            loginFromConfig(
-                function(data){
-                    window.location.reload()
-                }
-            )
-        }
-        console.log("error: ", data)
-    })
+    ).fail(fail)
 }
 
 
-function logout(token, clienttoken, callback){
+function logout(token, clienttoken, callback, fail){
     $.post(
         authpath + `&cmd=logout`,
         {
@@ -74,7 +65,7 @@ function logout(token, clienttoken, callback){
         },
         callback,
         "json"
-    ).fail(function(data){console.log("error: ", data)})
+    ).fail(fail)
 }
 
 const algorithm = 'aes-128-cbc'
@@ -90,6 +81,7 @@ function decrypt(text) {
 
 try {
     exports.login = login
+    exports.loginFromConfig = loginFromConfig
     exports.validate = validate
     exports.logout = logout
 
