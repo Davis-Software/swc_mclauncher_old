@@ -53,7 +53,7 @@ function createWindow () {
                         win.loadFile("templates/load.html");
                         win.webContents.session.clearCache()
                         win.loadFile("templates/login.html");
-                        // win.loadFile("templates/pageload.html");
+                        // win.loadFile("templates/offline.html");
                     }
                 });
             }
