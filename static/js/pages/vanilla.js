@@ -103,6 +103,7 @@ ipcRenderer.on("mc-data", function(ev, data){
 })
 ipcRenderer.on("mc-end", function(){
     if(getGameVal("closeonend")){
+        remote.getCurrentWindow() = null
         remote.app.quit()
     }else{
         remote.getCurrentWindow().show()
