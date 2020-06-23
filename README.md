@@ -46,3 +46,34 @@ If you have a question you want to ask us, just use our [Support page](https://s
 Special thanks to [Pierce01](https://github.com/Pierce01) for his
 [MinecraftLauncher-core](https://github.com/Pierce01/MinecraftLauncher-core) and
 his amazing Support on his [Discord](https://discord.gg/8uYVbXP)
+
+## Developer Notes
+Here are some important information about the code!
+
+#### Launcher requires software-city to be online
+In order for the lancher to start, our software-city servers **have** to be online.
+If that's not the case, you **will** be presented with the offline page.
+Our servers are online during daytime in Germany CEST.
+
+The state of the server is being checked in the `main.js` file
+
+```javascript
+require("dns").lookup("software-city.org", function(err, addr) {
+  if (err) {
+      win.loadFile('templates/offline.html');
+  } else {
+      require('dns').lookupService(addr, 80, function(err) {
+          if (err) {
+              win.loadFile('templates/offline.html');
+          } else {
+              win.loadFile("templates/load.html");
+              win.webContents.session.clearCache()
+              win.loadFile("templates/login.html");
+          }
+      });
+  }
+});
+```
+Don't remove this though, because the login functions also need our servers.
+
+More Dev-notes will follow soon...
