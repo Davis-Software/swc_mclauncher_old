@@ -116,7 +116,8 @@ if (app.requestSingleInstanceLock()) {
         }
         if (win) {
             if (win.isMinimized()) win.restore();
-            win.focus();
+            win.show()
+            win.focus()
         }
     }
 )};

@@ -88,7 +88,7 @@
                             loaddash();
                         }, function(err){
                             if(err.status===403){
-                                loginFromConfig(function(data){
+                                auth.loginFromConfig(function(data){
                                     setVal("loggedin", true);
                                     setVal("credentials",
                                     {
@@ -103,11 +103,12 @@
                                     })
                                     loaddash();
                                 }, function(){
-                                    logout()
-                                    window.location.reload()
+                                    info.innerText = `Error: Could not validate login info! Please re-login`
+                                    loadanim(false)
                                 })
                             }else{
                                 info.innerText = `Error: ${err.status} - ${err.statusText}`
+                                loadanim(false)
                             }
                         })
                         
