@@ -21,11 +21,18 @@
             #options span{margin-left:25px}
             .ep-sidetools{top:60%}
         </style>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
+        <link rel="stylesheet" href="./../static/css/bootstrap.css">
+        <script>let $ = require('jquery');</script>
+        <script>require('popper.js');</script>
+        <script>require('bootstrap');</script>
     </head>
     <body>
+        <div class="frame"></div>
         <div id="notice">
-            <h1>You are offline!</h1>
-            <h4>Please make sure that Software City is online and that you are connected to the Internet</h4>
+            <h2>You are offline!</h2>
+            <h5>Please make sure that Software City is online and that you are connected to the Internet</h5>
         </div>
         <div id="main-frame-error" class="interstitial-wrapper" jstcache="0">
 			<img class="icon icon-offline" jseval="updateIconClass(this.classList, iconClass)" jstcache="1" style="visibility: hidden;">
@@ -54,7 +61,10 @@
 			<audio id="offline-sound-press" src="./../static/audio/minigame/offline-sound-press.mp3"></audio>
 			<audio id="offline-sound-hit" src="./../static/audio/minigame/offline-sound-hit.mp3"></audio>
 			<audio id="offline-sound-reached" src="./../static/audio/minigame/offline-sound-reached.mp3"></audio>
-		</div>
+        </div>
+        <script>
+            $(".frame").load("sections/frame.html")
+        </script>
         <script src="./../static/js/minigame/runner.js"></script>
     </body>
 </html>
