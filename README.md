@@ -8,10 +8,11 @@ Start your Minecraft via a beatiful and easy to use Interface and play all Softw
 
 ![pic1](_gitresources/preview1.png)
 
+![pic1](_gitresources/preview2.png)
+
+
 ## Features
 Section will be added soon...
-
-![pic1](_gitresources/preview2.png)
 
 ## Download
 ### Requirements
@@ -31,6 +32,8 @@ Section will be added soon...
 
 ## Activate Dev-mode
 In order to activate devMode, you can:
+
+**Warning: Dev-Mode WILL disable auto-updates!**
 
 - Edit the file `%APPDATA%\SWC Minecraft Launcher\settings.json` and change `devMode` to `true` at the end of the file
 or
