@@ -8,6 +8,9 @@ Start your Minecraft via a beatiful and easy to use Interface and play all Softw
 
 ![pic1](_gitresources/preview1.png)
 
+## Features
+Section will be added soon...
+
 ![pic1](_gitresources/preview2.png)
 
 ## Download
