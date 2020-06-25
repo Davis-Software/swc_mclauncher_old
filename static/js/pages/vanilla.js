@@ -16,7 +16,7 @@ $.get("https://launchermeta.mojang.com/mc/game/version_manifest.json",function(d
     var snapchotLI = document.getElementById("opt-snapshot")
 
     latestLI.innerHTML += makeReleaseSelPart(`Release: ${data.latest.release}`, data.latest.release)
-    latestLI.innerHTML += makeSnaoshotSelPart(`Snapchot: ${data.latest.snapshot}`, data.latest.snapshot)
+    latestLI.innerHTML += makeSnaoshotSelPart(`Snapshot: ${data.latest.snapshot}`, data.latest.snapshot)
 
     var count = 0
     for(let version of data.versions){
