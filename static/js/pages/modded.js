@@ -48,25 +48,29 @@ function clearMods(is, will){
     }
 }
 
+var launchbtn = document.getElementById("startbtn")
+var progress = document.getElementById("start-progress")
+var pr_bar = document.getElementById("progress-bar")
+
 function launch(){
     clearMods(getGameVal("lastmodpack"), moddata.id)
     setGameVal("lastmodpack", moddata.id)
+
+    var package = `https://projects.software-city.org/resources/minecraft/modded/modpacks/${moddata.id}.zip`
+
     version = [moddata.mcVersion, moddata.type]
+
     ipcRenderer.send('startmoddedmc', {
+        currpack: path.join(getGameVal("gameOptions").mcPath, `clientPackage.zip`),
         credentials : getVal("credentials"),
         mcPath : getGameVal("gameOptions").mcPath,
         XmxRam : getGameVal("gameOptions").XmxRam,
-        package: `https://projects.software-city.org/resources/minecraft/modded/modpacks/${moddata.id}.zip`,
+        package: package,
         forge: path.join(getGameVal("gameOptions").mcPath, `bin/forge-${moddata.mcVersion}.jar`),
         version: version[0],
         type: version[1]
     })
 }
-
-var launchbtn = document.getElementById("startbtn")
-var progress = document.getElementById("start-progress")
-var pr_bar = document.getElementById("progress-bar")
-
 
 ipcRenderer.on("mc-init", function(ev){
     launchbtn.hidden = true
@@ -74,6 +78,10 @@ ipcRenderer.on("mc-init", function(ev){
     progress.style.width = "0%"
     pr_bar.style.height = "20px"
     progress.classList.remove("progress-bar-striped", "progress-bar-animated")
+})
+ipcRenderer.on("mc-mod-sum", function(){
+    progress.style.width = "100%"
+    progress.innerText = `getting checksum...`
 })
 ipcRenderer.on("mc-download-status", function(ev, data){
     progress.innerText = `Download: ${Math.round((data.current/data.total)*100)}%`
@@ -114,4 +122,9 @@ ipcRenderer.on("mc-end", function(){
     }else{
         remote.getCurrentWindow().show()
     }
+})
+ipcRenderer.on("mc-error", function(err){
+    pr_bar.style.height = "0";
+    launchbtn.hidden = false;
+    alert(err)
 })
