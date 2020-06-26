@@ -41,13 +41,22 @@ var { ipcRenderer } = require('electron')
 var remote = require("electron").remote
 
 function launch(version=null){
+    var rootpath = path.join(getGameVal("gameOptions").mcPath, "vanilla")
+    if(!fs.existsSync(rootpath)){
+        for(var y of rootpath.split("\\")){
+            str += `${y}\\`
+            if(!fs.existsSync(str)){
+                fs.mkdirSync(str)
+            }
+        }
+    }
     if(version===null){
         version = $( "#version-select option:selected" ).val().split(",")
     }
     console.log(version)
     ipcRenderer.send('startmc', {
         credentials : getVal("credentials"),
-        mcPath : path.join(getGameVal("gameOptions").mcPath, "vanilla"),
+        mcPath : rootpath,
         XmxRam : getGameVal("gameOptions").XmxRam,
         version: version[0],
         type: version[1]

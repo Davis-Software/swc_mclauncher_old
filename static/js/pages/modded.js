@@ -35,6 +35,14 @@ var pr_bar = document.getElementById("progress-bar")
 
 function launch(){
     var reinstall = false
+    if(!fs.existsSync(rootpath)){
+        for(var y of rootpath.split("\\")){
+            str += `${y}\\`
+            if(!fs.existsSync(str)){
+                fs.mkdirSync(str)
+            }
+        }
+    }
     if(getGameVal("lastmodpack")[moddata.id] != moddata.version){
         reinstall = true
         progress.classList.add("progress-bar-striped", "progress-bar-animated")
