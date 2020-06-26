@@ -1,71 +1,71 @@
 {
- "productName": "SWC Minecraft Launcher",
- "homepage": "https://projects.software-city.org/projects/electron/swc_mclauncher",
- "bugs": {
-  "url": "https://github.com/Software-City/swc_mclauncher/issues",
-  "email": "support@software-city.org"
- },
- "author": {
-  "name": "Software City Team",
-  "email": "support@software-city.org",
-  "url": "https://projects.software-city.org/projects/electron/swc_mclauncher"
- },
- "name": "swc_mclauncher",
- "version": "0.2.0",
- "description": "SWC Minecraft Launcher",
- "repository": "https://github.com/Software-City/swc_mclauncher",
- "license": "MIT",
- "main": "main.js",
- "scripts": {
-  "start": "electron .",
-  "pack": "electron-builder --dir",
-  "dist": "electron-builder --x64 --win",
-  "distlinux": "electron-builder --x64 --linux",
-  "publish": "electron-builder --x64 --win -p always",
-  "publishlinux": "electron-builder --x64 --linux -p always"
- },
- "devDependencies": {
-  "electron": "^8.3.4",
-  "electron-builder": "^22.5.1"
- },
- "dependencies": {
-  "@popperjs/core": "^2.2.2",
-  "bootstrap": "^4.5.0",
-  "checksum": "^0.1.1",
-  "electron-updater": "^4.2.5",
-  "jquery": "^3.3.1",
-  "minecraft-launcher-core": "^3.14.2",
-  "popper.js": "^1.14.4",
-  "request": "^2.88.2",
-  "uuid": "^8.2.0"
- },
- "build": {
-  "appId": "org.software-city.app.swc_mclauncher",
-  "afterPack": "./afterPackHook.js",
-  "linux": {
-   "target": "AppImage",
-   "icon": "./static/logos/256x256.png",
-   "category": "Utility",
-   "publish": {
-    "provider": "github",
-    "publishAutoUpdate": true,
-    "releaseType": "release"
-   }
-  },
-  "win": {
-   "target": "nsis",
-   "icon": ".\\static\\logos\\logo.ico",
-   "publish": {
-    "provider": "github",
-    "publishAutoUpdate": true,
-    "releaseType": "release"
-   }
-  },
-  "protocols": {
-   "name": "SWC Minecraft Launcher",
-   "schemes": [
-    "swc_mclauncher"
-   ]
-  }
- }
+    "productName": "SWC Minecraft Launcher",
+    "homepage": "https://projects.software-city.org/projects/electron/swc_mclauncher",
+    "bugs": {
+        "url": "https://github.com/Software-City/swc_mclauncher/issues",
+        "email": "support@software-city.org"
+    },
+    "author": {
+        "name": "Software City Team",
+        "email": "support@software-city.org",
+        "url": "https://projects.software-city.org/projects/electron/swc_mclauncher"
+    },
+    "name": "swc_mclauncher",
+    "version": "0.2.1",
+    "description": "SWC Minecraft Launcher",
+    "repository": "https://github.com/Software-City/swc_mclauncher",
+    "license": "MIT",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "pack": "electron-builder --dir",
+        "dist": "electron-builder --x64 --win",
+        "distlinux": "electron-builder --x64 --linux",
+        "publish": "electron-builder --x64 --win -p always",
+        "publishlinux": "electron-builder --x64 --linux -p always"
+    },
+        "devDependencies": {
+        "electron": "^8.3.4",
+        "electron-builder": "^22.5.1"
+    },
+    "dependencies": {
+        "@popperjs/core": "^2.2.2",
+        "bootstrap": "^4.5.0",
+        "checksum": "^0.1.1",
+        "electron-updater": "^4.2.5",
+        "jquery": "^3.3.1",
+        "minecraft-launcher-core": "^3.14.2",
+        "popper.js": "^1.14.4",
+        "request": "^2.88.2",
+        "uuid": "^8.2.0"
+    },
+    "build": {
+        "appId": "org.software-city.app.swc_mclauncher",
+        "afterPack": "./afterPackHook.js",
+        "linux": {
+            "target": "AppImage",
+            "icon": "./static/logos/256x256.png",
+            "category": "Utility",
+            "publish": {
+                "provider": "github",
+                "publishAutoUpdate": true,
+                "releaseType": "release"
+            }
+        },
+        "win": {
+            "target": "nsis",
+            "icon": ".\\static\\logos\\logo.ico",
+            "publish": {
+                "provider": "github",
+                "publishAutoUpdate": true,
+                "releaseType": "release"
+            }
+        },
+        "protocols": {
+            "name": "SWC Minecraft Launcher",
+            "schemes": [
+                "swc_mclauncher"
+            ]
+        }
+    }
 }
