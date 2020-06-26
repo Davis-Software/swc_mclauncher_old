@@ -1,15 +1,19 @@
+const fs = require("fs")
 const checksum = require("checksum")
 const request = require("request")
 
 function getChecksum(file, callback, fail){
-    checksum.file(file, {
-        algorithm: "md5"
-    }, function(err, data){
-        if(err){fail(err)}
-        else{
-            callback(data)
-        }
-    })
+    if(!fs.existsSync(file)){callback(null);return}
+    else{
+        checksum.file(file, {
+            algorithm: "md5"
+        }, function(err, data){
+            if(err){fail(err)}
+            else{
+                callback(data)
+            }
+        })
+    }
 }
 
 function getShouldSum(url, callback, fail){

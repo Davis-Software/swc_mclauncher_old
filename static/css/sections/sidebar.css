@@ -2,6 +2,8 @@
     position: fixed;
     height: 100vh;
     width: 15vw;
+    overflow-y: auto;
+    overflow-x: visible;
 }
 
 #sidebar a, a:hover, a:focus {

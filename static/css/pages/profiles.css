@@ -7,15 +7,35 @@
 .custom-checkbox{
     margin-bottom: 8px;
 }
-.list-group a{
+.list-group div{
     height: 60px;
 }
-.list-group a span{
+.list-group div button{
+    position: absolute;
+    right:10px;
+}
+.list-group div a{
+    color: white;
+    padding-top: 10px;
+    height: 50px;
+    width: 70vw;
+}
+.list-group div a span{
     font-size: 20px;
 }
 .input-group{
     width: 40vw;
 }
+.list-group div .info{
+    font-size: 14px;
+    color: rgb(119, 119, 119);
+    margin-left: 30px;
+}
+
+label[for=edit-bg]{
+    margin-left: 280px;
+}
+
 #edit-version *{
     background-color: rgb(24, 24, 24);
 }

@@ -3,6 +3,7 @@ $(".username").text(getVal("credentials").username)
 function populateSidebarMods(callback){
     $.get("https://projects.software-city.org/resources/minecraft/modded/modpacks/packs.json", function(data){
         var modli = document.getElementById("mod-section")
+        modli.innerHTML = "<p>MODPACKS</p>"
         for(mod of data){
             modli.innerHTML += 
             `
@@ -28,6 +29,7 @@ function populateSidebarMods(callback){
 function populateSidebarCustoms(callback){
     var data = getGameVal("profiles"); if(data==undefined){data=[]}
     var profileli = document.getElementById("custom-section")
+    profileli.innerHTML = "<p>CUSTOM</p>"
     for(profile of data){
         profileli.innerHTML += 
         `
@@ -64,25 +66,29 @@ function children(){
     return li
 }
 
-populateSidebarMods(
-    function(){
-        populateSidebarCustoms(function(){
-            for(let x of children()){
-                switch (x.children[0].getAttribute("page")) {
-                    case "modded":
-                        x.setAttribute("onclick", "sidebar_loadmodpage(this)")
-                        break;
-                    case "customprofile":
-                        x.setAttribute("onclick", "sidebar_loadcustompage(this)")
-                        break;
-                    default:
-                        x.setAttribute("onclick", "sidebar_loadpage(this)")
-                        break;
+function SidebarLoad(){
+    populateSidebarMods(
+        function(){
+            populateSidebarCustoms(function(){
+                for(let x of children()){
+                    switch (x.children[0].getAttribute("page")) {
+                        case "modded":
+                            x.setAttribute("onclick", "sidebar_loadmodpage(this)")
+                            break;
+                        case "customprofile":
+                            x.setAttribute("onclick", "sidebar_loadcustompage(this)")
+                            break;
+                        default:
+                            x.setAttribute("onclick", "sidebar_loadpage(this)")
+                            break;
+                    }
                 }
-            }
-        })
-    }
-)
+            })
+        }
+    )
+}
+
+SidebarLoad()
 
 function sidebar_loadpage(btn){
     var btns = children()

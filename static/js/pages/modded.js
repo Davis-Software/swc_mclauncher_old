@@ -27,48 +27,49 @@ var { ipcRenderer } = require('electron')
 var remote = require("electron").remote
 var fs = require("fs-extra")
 
-function clearMods(is, will){
-    var mods = path.join(getGameVal("gameOptions").mcPath, "mods")
-    var conf = path.join(getGameVal("gameOptions").mcPath, "config")
-    if(is != will){
-        if(fs.existsSync(mods)){fs.removeSync(mods)}
-        if(fs.existsSync(conf)){fs.removeSync(conf)}
-        var oldmoddata = getMod(getGameVal("lastmodpack"))
-        try {
-            var extra = oldmoddata.extrafiles
-        } catch {
-            var extra = undefined
-        }
-        if(extra != undefined){
-            for(let file of extra){
-                var run = path.join(getGameVal("gameOptions").mcPath, file)
-                if(fs.existsSync(run)){fs.removeSync(run)}
-            }
-        }
-    }
-}
+var rootpath = path.join(getGameVal("gameOptions").mcPath, "modpacks", moddata.id)
 
 var launchbtn = document.getElementById("startbtn")
 var progress = document.getElementById("start-progress")
 var pr_bar = document.getElementById("progress-bar")
 
 function launch(){
-    clearMods(getGameVal("lastmodpack"), moddata.id)
-    setGameVal("lastmodpack", moddata.id)
+    var reinstall = false
+    if(getGameVal("lastmodpack")[moddata.id] != moddata.version){
+        reinstall = true
+        progress.classList.add("progress-bar-striped", "progress-bar-animated")
+        progress.innerText = `Reinstalling due to update...`
+        progress.style.width = "100%"
+        pr_bar.style.height = "20px"
+        fs.removeSync(path.join(rootpath, "mods"))
+        fs.removeSync(path.join(rootpath, "config"))
+        if(moddata.extrafiles != undefined){
+            console.log("ok")
+            for(var x of moddata.extrafiles){
+                console.log(path.join(rootpath, x), fs.existsSync(path.join(rootpath, x)))
+                if(fs.existsSync(path.join(rootpath, x))){
+                    fs.removeSync(path.join(rootpath, x))
+                }
+            }
+        }
+        gamedata["lastmodpack"][moddata.id] = moddata.version
+        commit_game()
+    }
 
     var package = `https://projects.software-city.org/resources/minecraft/modded/modpacks/${moddata.id}.zip`
 
     version = [moddata.mcVersion, moddata.type]
 
     ipcRenderer.send('startmoddedmc', {
-        currpack: path.join(getGameVal("gameOptions").mcPath, `clientPackage.zip`),
+        currpack: path.join(rootpath, `clientPackage.zip`),
         credentials : getVal("credentials"),
-        mcPath : getGameVal("gameOptions").mcPath,
+        mcPath : rootpath,
         XmxRam : getGameVal("gameOptions").XmxRam,
         package: package,
-        forge: path.join(getGameVal("gameOptions").mcPath, `bin/forge-${moddata.mcVersion}.jar`),
+        forge: path.join(rootpath, `bin/forge-${moddata.mcVersion}.jar`),
         version: version[0],
-        type: version[1]
+        type: version[1],
+        reinstall: reinstall
     })
 }
 
@@ -126,5 +127,6 @@ ipcRenderer.on("mc-end", function(){
 ipcRenderer.on("mc-error", function(err){
     pr_bar.style.height = "0";
     launchbtn.hidden = false;
+    console.error(err)
     alert(err)
 })

@@ -47,7 +47,7 @@ function launch(version=null){
     console.log(version)
     ipcRenderer.send('startmc', {
         credentials : getVal("credentials"),
-        mcPath : getGameVal("gameOptions").mcPath,
+        mcPath : path.join(getGameVal("gameOptions").mcPath, "vanilla"),
         XmxRam : getGameVal("gameOptions").XmxRam,
         version: version[0],
         type: version[1]

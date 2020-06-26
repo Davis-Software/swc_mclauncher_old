@@ -45,7 +45,7 @@ exports.launchModded = function launchModded(send, args){
     var pack = args.package
     send("mc-init")
     helper.compareCheckSums(args.package, args.currpack, function(data){
-        if(data.equal){pack=null}
+        if(data.equal && !args.reinstall){pack=null}
         var credentials = args.credentials
         let opts = {
             clientPackage: pack,
@@ -82,6 +82,7 @@ exports.launchModded = function launchModded(send, args){
             launcher.removeAllListeners(e)
         })
     }, function(err){
+        console.error(err)
         send("mc-error", err)
     })
 }
