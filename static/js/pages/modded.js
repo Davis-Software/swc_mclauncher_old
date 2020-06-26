@@ -35,6 +35,7 @@ var pr_bar = document.getElementById("progress-bar")
 
 function launch(){
     var reinstall = false
+    var str = ""
     if(!fs.existsSync(rootpath)){
         for(var y of rootpath.split("\\")){
             str += `${y}\\`
