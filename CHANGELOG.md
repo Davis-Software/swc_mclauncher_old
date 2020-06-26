@@ -67,3 +67,6 @@
 - added profile feature (create/cutsomize own profiles)
 - added custom profile icons and backgrounds
 - each modpack now has its own folder
+
+## 0.2.1
+- fixed root folders not being created
