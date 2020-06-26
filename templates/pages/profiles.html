@@ -1,27 +1,37 @@
 <link rel="stylesheet" href="./../static/css/pages/profiles.css">
 
+
+
 <div id="profile-overview" class="m-3">
     <h3>Profiles</h3>
     <div class="list-group" id="profile-list"> </div>
-    <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
+    <a href="#" class="list-group-item list-group-item-action d-flex align-items-center" onclick="editorPage(false)">
         <i class="material-icons">add</i> &nbsp;Add a profile
     </a>
 </div>
+
+
+
+
 <div id="profile-edit" class="m-3" hidden>
     <h3>Profile Editor</h3>
+
+    <label for="edit-name">Profile Name</label>
     <input type="text" id="edit-name" class="form-control" placeholder="Profile Name">
     <br>
+    <label for="edit-icon">Profile Icon - file or url (optional)</label>
+    <label for="edit-bg">Profile Background - file or url (optional)</label>
     <div class="d-flex align-items-center justify-content-between">
         <div class="input-group">
-            <input type="text" id="" class="form-control">
+            <input type="text" id="edit-icon" class="form-control" placeholder="file or url" for="Profile Icon">
             <div class="input-group-append">
-                <button class="btn btn-success" type="submit">Go</button>
+                <button class="btn btn-success" onclick="selectFile('edit-icon')">select</button>
             </div>
         </div>
         <div class="input-group">
-            <input type="text" id="" class="form-control">
+            <input type="text" id="edit-bg" class="form-control" placeholder="file or url" for="Profile Background">
             <div class="input-group-append">
-                <button class="btn btn-success" type="submit">Go</button>
+                <button class="btn btn-success" onclick="selectFile('edit-bg')">select</button>
             </div>
         </div>
     </div>
@@ -32,6 +42,15 @@
         <optgroup label="Releases" id="opt-releases"> </optgroup>
         <optgroup label="Snapshots" id="opt-snapshot"> </optgroup>
     </select>
+
+    <br><br>
+    <div class="btn-group">
+        <button class="btn btn-warning" type="button" onclick="overviewPage()">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="save-btn">Save</button>
+    </div>
+
 </div>
+
+
 
 <script src="./../static/js/pages/profiles.js"></script>
