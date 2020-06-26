@@ -61,3 +61,9 @@
 ## 0.1.9
 - fixed modpack being always downloaded
 - added error-debug features to `launcher.js`
+
+## 0.2.0
+- completed profile overview and editor (still more to come)
+- added profile feature (create/cutsomize own profiles)
+- added custom profile icons and backgrounds
+- each modpack now has its own folder

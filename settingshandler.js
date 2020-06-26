@@ -1,6 +1,7 @@
 var iswin32 = process.platform === "win32";
 var fs = require('fs');
-var path = require("path")
+var path = require("path");
+const { type } = require('jquery');
 
 var AppData;
 var appPath;
@@ -49,7 +50,8 @@ function def_gameconfig(){
         },
         "profiles": [
             
-        ]
+        ],
+        "lastmodpack": {}
     }
 }
 
@@ -79,6 +81,12 @@ function init_settings(){
     settings = JSON.parse(fs.readFileSync(setfile, "utf8"));
     gamedata = JSON.parse(fs.readFileSync(gamefile, "utf8"));
     tempdata = JSON.parse("{}")
+
+    if(typeof(gamedata.lastmodpack) === typeof("")){
+        gamedata.lastmodpack = {}
+        commit_game()
+    }
+
 }
 
 function commit_game(){
