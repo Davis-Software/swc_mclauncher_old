@@ -19,7 +19,7 @@ You can see all changes [here](https://github.com/Software-City/swc_mclauncher/b
 
 ## Download
 ### Requirements
-- Winodws 10 64bit
+- Winodws 10 64bit or Linux
 - Java 64-Bit
 - Minecraft account, duh
 
