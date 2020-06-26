@@ -14,6 +14,9 @@ Start your Minecraft via a beatiful and easy to use Interface and play all Softw
 ## Features
 Section will be added soon...
 
+## Changes
+You can see all changes [here](https://github.com/Software-City/swc_mclauncher/blob/master/CHANGELOG.md)
+
 ## Download
 ### Requirements
 - Winodws 10 64bit
