@@ -6,8 +6,8 @@
 
 <div class="container">
 
-    <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="rundetached" disabled>
+    <div class="custom-control custom-checkbox" hidden>
+        <input type="checkbox" class="custom-control-input" id="rundetached">
         <label class="custom-control-label" for="rundetached">Run Minecraft detatched from launcher</label>
     </div>
     <div class="custom-control custom-checkbox">
@@ -56,8 +56,11 @@
 
 
 
+    <div class="button-group" style="position: fixed !important; bottom: 2vh; right: 1vw;">
+        <button onclick="reset(); external_loadpage(this)" page="settings" force-data class="btn btn-warning">Reset settings to default</button>
+        <button onclick="reset_full(); external_loadpage(this)" page="startpage" force-data class="btn btn-danger">Complete App reset</button>
+    </div>
     
-    <button onclick="reset(); external_loadpage(this)" page="settings" force-data class="btn btn-danger" style="position: fixed !important; bottom: 2vh; right: 2vw;">Reset to default</button>
 
 
 

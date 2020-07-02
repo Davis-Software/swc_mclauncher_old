@@ -36,12 +36,29 @@
         </div>
     </div>
     <br>
-    <label for="edit-version">Version</label>
-    <select class="versions custom-select" id="edit-version">
-        <optgroup label="Latest" id="opt-latest"> </optgroup>
-        <optgroup label="Releases" id="opt-releases"> </optgroup>
-        <optgroup label="Snapshots" id="opt-snapshot"> </optgroup>
-    </select>
+    <label for="edit-vdiv">Minecraft Versions</label>
+    <div id="edit-vdiv">
+        <ul class="nav nav-pills" hidden>
+            <li class="nav-item">
+                <a class="nav-link">releases</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">snapshots</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">betas & alphas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">forge</a>
+            </li>
+        </ul>
+        <br>
+        <select class="versions custom-select" id="edit-version">
+            <optgroup label="Latest" id="opt-latest"> </optgroup>
+            <optgroup label="Releases" id="opt-releases"> </optgroup>
+            <optgroup label="Snapshots" id="opt-snapshot"> </optgroup>
+        </select>
+    </div>
 
     <br><br>
     <div class="btn-group">
