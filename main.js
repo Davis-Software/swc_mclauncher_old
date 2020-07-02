@@ -31,11 +31,14 @@ function createWindow () {
             frame: sethandle.getVal("devMode")
         });
         app.allowRendererProcessReuse = true;
+
+        // menuhandle.buildMenu();
         if(sethandle.getVal("devMode")){
             menuhandle.buildMenu();
         }else{
             win.setMenuBarVisibility(false)
         }
+        
         win.once('focus', () => win.flashFrame(false))
         if(iswin32){
             win.setIcon(__dirname + '/static/logos/logo.ico');

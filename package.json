@@ -11,7 +11,7 @@
         "url": "https://projects.software-city.org/projects/electron/swc_mclauncher"
     },
     "name": "swc_mclauncher",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "description": "SWC Minecraft Launcher",
     "repository": "https://github.com/Software-City/swc_mclauncher",
     "license": "MIT",
@@ -24,12 +24,12 @@
         "publish": "electron-builder --x64 --win -p always",
         "publishlinux": "electron-builder --x64 --linux -p always"
     },
-        "devDependencies": {
+    "devDependencies": {
         "electron": "^8.3.4",
         "electron-builder": "^22.5.1"
     },
     "dependencies": {
-        "@popperjs/core": "^2.2.2",
+        "@popperjs/core": "^2.4.3",
         "bootstrap": "^4.5.0",
         "checksum": "^0.1.1",
         "electron-updater": "^4.2.5",

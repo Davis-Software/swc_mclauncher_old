@@ -70,3 +70,10 @@
 
 ## 0.2.1
 - fixed root folders not being created
+
+## 0.2.2
+- added some basic implementation of better custom profile version selection
+- added reset-full button to settings
+- fixed settings to default button deleting profiles and gameversionsaves
+- some minor GUI improvements
+- updated dependencies
