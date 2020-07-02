@@ -31,11 +31,30 @@
     color: rgb(119, 119, 119);
     margin-left: 30px;
 }
+.list-group div .control{
+    font-size: 14px;
+}
 
 label[for=edit-bg]{
-    margin-left: 280px;
+    margin-left: 325px;
 }
 
 #edit-version *{
     background-color: rgb(24, 24, 24);
+}
+#edit-vdiv{
+    padding: 20px;
+    border-style: groove;
+    border-color: gray;
+    border-width: 1px;
+}
+
+#edit-vdiv ul li{
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 5px;
+}
+
+#edit-vdiv ul li:hover{
+    background-color: #213549;
 }

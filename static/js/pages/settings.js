@@ -91,6 +91,16 @@ function openfolder(title){
 }
 
 function reset(){
+    var save = gamedata.profiles
+    var save2 = gamedata.lastmodpack
+    var rest = def_gameconfig()
+    rest.profiles = save
+    rest.lastmodpack = save2
+    gamedata = rest
+    commit_game()
+}
+
+function reset_full(){
     gamedata = def_gameconfig()
     commit_game()
 }

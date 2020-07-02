@@ -37,7 +37,7 @@ function overviewPage(){
                     <span class="info">Version: ${profile.mcVersion}</span>
                     <span class="info">Created: ${profile.date}</span>
                 </a>
-                <button class="badge-pill material-icons btn-danger btn" onclick="deleteProfile('${profile.id}')">close</button>
+                <button class="badge-pill material-icons btn-danger btn control" onclick="deleteProfile('${profile.id}')">close</button>
             </div>
             `
         }
@@ -136,7 +136,7 @@ function editorPage(edit, vals){
         var snapchotLI = document.getElementById("opt-snapshot")
     
         latestLI.innerHTML = makeReleaseSelPart(`Release: ${data.latest.release}`, data.latest.release)
-        latestLI.innerHTML += makeSnaoshotSelPart(`Snapchot: ${data.latest.snapshot}`, data.latest.snapshot)
+        latestLI.innerHTML += makeSnaoshotSelPart(`Snapshot: ${data.latest.snapshot}`, data.latest.snapshot)
     
         var count = 0
         releasesLI.innerHTML = ""
@@ -240,5 +240,5 @@ function save(id=undefined){
 
 
 
-
+// editorPage()
 overviewPage()
