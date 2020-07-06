@@ -77,3 +77,4 @@
 - fixed settings to default button deleting profiles and gameversionsaves
 - some minor GUI improvements
 - updated dependencies
+- fixed background not loading on custom version pages
