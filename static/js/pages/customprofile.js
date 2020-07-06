@@ -16,7 +16,7 @@ if(customdata.icon != ""){
     $(".custom-icon").attr("src", customdata.icon)
 }
 if(customdata.bg != ""){
-    document.getElementById("mainpage").innerHTML = document.getElementById("mainpage").innerHTML.replace(`"{{custom-bg}}"`, `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${customdata.bg})`)
+    document.getElementById("mainpage").innerHTML = document.getElementById("mainpage").innerHTML.replace(`"{{custom-bg}}"`, `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${customdata.bg.replaceAll("\\", "/")})`)
 }else{
     document.getElementById("mainpage").innerHTML = document.getElementById("mainpage").innerHTML.replace(`"{{custom-bg}}"`, `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./../static/images/vanilla-bg.png)`)
 }
