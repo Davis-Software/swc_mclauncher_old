@@ -38,26 +38,33 @@
     <br>
     <label for="edit-vdiv">Minecraft Versions</label>
     <div id="edit-vdiv">
-        <ul class="nav nav-pills" hidden>
+        <ul class="nav nav-pills" id="version-selnav">
             <li class="nav-item">
-                <a class="nav-link">releases</a>
+                <a class="nav-link" data-toggle="pill" href="#releases" onclick="load('release')">releases</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link">snapshots</a>
+                <a class="nav-link" data-toggle="pill" href="#snapshots" onclick="load('snapshot')">snapshots</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link">betas & alphas</a>
+                <a class="nav-link" data-toggle="pill" href="#betas" onclick="load('beta')">betas & alphas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link">forge</a>
+                <a class="nav-link" data-toggle="pill" href="#forge" onclick="load('forge')">forge</a>
             </li>
         </ul>
         <br>
         <select class="versions custom-select" id="edit-version">
             <optgroup label="Latest" id="opt-latest"> </optgroup>
-            <optgroup label="Releases" id="opt-releases"> </optgroup>
-            <optgroup label="Snapshots" id="opt-snapshot"> </optgroup>
+            <optgroup label="Releases" id="opt-all"> </optgroup>
         </select>
+        <div class="tab-content">
+            <div class="tab-pane container fade" id="releases"></div>
+            <div class="tab-pane container fade" id="snapshots"></div>
+            <div class="tab-pane container fade" id="betas"></div>
+            <div class="tab-pane container fade" id="forge">
+                coming soon...
+            </div>
+        </div>
     </div>
 
     <br><br>

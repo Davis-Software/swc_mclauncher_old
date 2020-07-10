@@ -39,7 +39,7 @@ label[for=edit-bg]{
     margin-left: 325px;
 }
 
-#edit-version *{
+.versions *{
     background-color: rgb(24, 24, 24);
 }
 #edit-vdiv{
