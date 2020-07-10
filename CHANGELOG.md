@@ -78,3 +78,10 @@
 - some minor GUI improvements
 - updated dependencies
 - fixed background not loading on custom version pages
+
+## 0.2.3
+- made custom profiles version selection better
+- added info to PLAY Button (INSTALL and UPDATE)
+- some QOL fixes
+- added docs [here](https://projects.software-city.org/docs/electron/swc_mclauncher)
+- updated [`README.md`](https://github.com/Software-City/swc_mclauncher/blob/dev/README.md)
