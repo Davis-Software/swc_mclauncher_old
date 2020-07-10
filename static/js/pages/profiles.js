@@ -35,7 +35,7 @@ function overviewPage(){
                     <span>${profile.name}</span>
                     <span class="info">Type: ${profile.type}</span>
                     <span class="info">Version: ${profile.mcVersion}</span>
-                    <span class="info">Created: ${profile.date}</span>
+                    <span class="info">Edited: ${profile.date}</span>
                 </a>
                 <button class="badge-pill material-icons btn-danger btn control" onclick="deleteProfile('${profile.id}')">close</button>
             </div>
@@ -103,60 +103,150 @@ var versionsel = document.getElementById("edit-version")
 function editorPage(edit, vals){
 
     function setVals(){
+        function makeTabVisible(tab){tab.classList.remove("fade");tab.classList.add("active")}
+        function makeTabInvisible(tab){tab.classList.remove("active");tab.classList.add("fade")}
+        function makeTabButtonActive(btn){btn.children[0].classList.add("active")}
+        function makeTabButtonInactive(btn){btn.children[0].classList.remove("active")}
+
+        var releasesTAB = document.getElementById("releases")
+        var snapshotTAB = document.getElementById("snapshots")
+        var betasTAB = document.getElementById("betas")
+        var forgeTAB = document.getElementById("forge")
+        var tabBTNs = document.getElementsByClassName("nav-item")
+
         if(edit){
+
+            load(vals.type, function(){
+                versionsel.value = `${vals.mcVersion},${vals.type}`
+            })
+
             pname.value = vals.name,
             icon.value = vals.icon,
             bg.value = vals.bg,
-            versionsel.value = `${vals.mcVersion},${vals.type}`
             document.getElementById("save-btn").setAttribute("onclick", `save('${vals.id}')`)
+
+            makeTabInvisible(releasesTAB)
+            makeTabInvisible(snapshotTAB)
+            makeTabInvisible(betasTAB)
+            makeTabInvisible(forgeTAB)
+            for(var x of tabBTNs){makeTabButtonInactive(x)}
+
+            switch (vals.type) {
+                case "forge":
+                    makeTabVisible(forgeTAB);
+                    makeTabButtonActive(tabBTNs[3])
+                    break;
+                case "release":
+                    makeTabVisible(releasesTAB);
+                    makeTabButtonActive(tabBTNs[0])
+                    break;
+                case "snapshot":
+                    makeTabVisible(snapshotTAB);
+                    makeTabButtonActive(tabBTNs[1])
+                    break;
+                case "old_alpha":
+                    makeTabVisible(betasTAB);
+                    makeTabButtonActive(tabBTNs[2])
+                    break;
+                case "old_beta": 
+                    makeTabVisible(betasTAB);
+                    makeTabButtonActive(tabBTNs[2])
+                    break;
+                default:
+                    makeTabVisible(releasesTAB);
+                    makeTabButtonActive(tabBTNs[0])
+                    break;
+            }
         }else{
             pname.value = "",
             icon.value = "",
             bg.value = ""
             document.getElementById("save-btn").setAttribute("onclick", `save()`)
+            load("release")
+            makeTabVisible(releasesTAB);
+            makeTabButtonActive(tabBTNs[0])
         }
         overview.hidden = true; editor.hidden = false
     }
+    setVals()
+}
 
-    function makeReleaseSelPart(name, version){
-        var template = `<option value="{{version}},release" class="text-success">{{name}}</option>`
-        return template.replace("{{version}}", version).replace("{{name}}", name)
-    }
-    function makeSnaoshotSelPart(name, version){
-        var template = `<option value="{{version}},snapshot" class="text-warning">{{name}}</option>`
-        return template.replace("{{version}}", version).replace("{{name}}", name)
-    }
-    function makeInvalidSelPart(name){
-        var template = `<option class="text-danger" disabled>{{name}}</option>`
-        return template.replace("{{name}}", name)
-    }
+function makeForgeSelPart(name, version){
+    var template = `<option value="{{version}},forge" class="text-success">{{name}}</option>`
+    return template.replace("{{version}}", version).replace("{{name}}", name)
+}
+function makeReleaseSelPart(name, version){
+    var template = `<option value="{{version}},release" class="text-success">{{name}}</option>`
+    return template.replace("{{version}}", version).replace("{{name}}", name)
+}
+function makeSnapshotSelPart(name, version){
+    var template = `<option value="{{version}},snapshot" class="text-warning">{{name}}</option>`
+    return template.replace("{{version}}", version).replace("{{name}}", name)
+}
+function makeBetaSelPart(name, version){
+    var template = `<option value="{{version}},old_beta" class="text-warning">{{name}}</option>`
+    return template.replace("{{version}}", version).replace("{{name}}", name)
+}
+function makeAlphaSelPart(name, version){
+    var template = `<option value="{{version}},old_alpha" class="text-danger">{{name}}</option>`
+    return template.replace("{{version}}", version).replace("{{name}}", name)
+}
+function makeInvalidSelPart(name){
+    var template = `<option class="text-danger" disabled>{{name}}</option>`
+    return template.replace("{{name}}", name)
+}
+
+function load(type, callback){
     $.get("https://launchermeta.mojang.com/mc/game/version_manifest.json",function(data){
         var latestLI = document.getElementById("opt-latest")
-        var releasesLI = document.getElementById("opt-releases")
-        var snapchotLI = document.getElementById("opt-snapshot")
-    
-        latestLI.innerHTML = makeReleaseSelPart(`Release: ${data.latest.release}`, data.latest.release)
-        latestLI.innerHTML += makeSnaoshotSelPart(`Snapshot: ${data.latest.snapshot}`, data.latest.snapshot)
-    
-        var count = 0
-        releasesLI.innerHTML = ""
-        snapchotLI.innerHTML = ""
-        for(let version of data.versions){
-            if(version.type == "release"){
-                if(version.id.includes("1.8") || version.id.includes("1.7.")){
-                    releasesLI.innerHTML += makeInvalidSelPart(version.id)
-                }else{
-                    releasesLI.innerHTML += makeReleaseSelPart(version.id, version.id)
+        var allLI = document.getElementById("opt-all")
+        
+        latestLI.innerHTML = ""
+        allLI.innerHTML = ""
+
+        switch (type) {
+            case "release":
+                latestLI.innerHTML = makeReleaseSelPart(`${data.latest.release}`, data.latest.release)
+                for(let version of data.versions){
+                    if(version.type == "release"){
+                        if(version.id.includes("1.8") || version.id.includes("1.7.")){
+                            allLI.innerHTML += makeInvalidSelPart(version.id)
+                        }else{
+                            allLI.innerHTML += makeReleaseSelPart(version.id, version.id)
+                        }
+                    }
                 }
-            }
-            if(version.type == "snapshot" && count < 50){
-                snapchotLI.innerHTML += makeSnaoshotSelPart(version.id, version.id)
-                count += 1
-            }
+                break;
+            case "snapshot":
+                latestLI.innerHTML = makeSnapshotSelPart(`${data.latest.snapshot}`, data.latest.snapshot)
+                for(let version of data.versions){
+                    if(version.type == "snapshot"){
+                        allLI.innerHTML += makeSnapshotSelPart(version.id, version.id)
+                    }
+                }
+                break;
+            case "old_beta":
+            case "old_alpha":
+            case "beta":
+                latestLI.innerHTML = makeInvalidSelPart(undefined)
+                for(let version of data.versions){
+                    if(version.type == "old_beta"){
+                        allLI.innerHTML += makeBetaSelPart(version.id, version.id)
+                    }else if(version.type == "old_alpha"){
+                        allLI.innerHTML += makeAlphaSelPart(version.id, version.id)
+                    }
+                }
+                break;
+            case "forge":
+                latestLI.innerHTML = makeInvalidSelPart("coming soon...")
+                break;
+            default:
+                break;
         }
-        setVals()
+        callback()
     })
 }
+
 function selectFile(idto){
     var elem = document.getElementById(idto)
     var path = openfolder(`Open for ${elem.getAttribute("for")}`)
