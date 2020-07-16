@@ -17,6 +17,8 @@ var cachedir;
 var settingsfile = "settings.json";
 var gamefilefile = "gamefile.json";
 
+var osPathSplitter;
+
 appName = "SWC\ Minecraft\ Launcher"
 
 if(iswin32){
@@ -66,6 +68,8 @@ try {
     exports.gamedata = gamedata;
     exports.cachedir = cachedir;
     exports.tempdata = tempdata;
+
+    exports.osPathSplitter = osPathSplitter;
 } catch (error) {
     init_settings();
 }
@@ -86,6 +90,8 @@ function init_settings(){
         gamedata.lastmodpack = {}
         commit_game()
     }
+
+    if(process.platform == "win32"){osPathSplitter = "\\"}else{osPathSplitter = "/"}
 
 }
 
