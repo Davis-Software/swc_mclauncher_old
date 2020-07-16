@@ -66,17 +66,19 @@ function launch(){
         }
         document.getElementById("folder-btn").disabled = false
         launchbtn.innerText = "PLAY"
-    launchbtn.classList.replace("btn-primary", "btn-success")
+        launchbtn.classList.replace("btn-primary", "btn-success")
     }
 
     if(customdata.type == "forge"){
         var forgeJarPath = path.join(rootpath, "bin", "forge")
         var forgeJarName = `forge-${customdata.mcVersion}-universal.jar`
 
+        str = "";
         if(!fs.existsSync(forgeJarPath)){
             for(var y of forgeJarPath.split(osPathSplitter)){
                 str += `${y}${osPathSplitter}`
                 if(!fs.existsSync(str)){
+                    console.log(2, str)
                     fs.mkdirSync(str)
                 }
             }
