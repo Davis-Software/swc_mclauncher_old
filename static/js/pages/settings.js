@@ -104,3 +104,5 @@ function reset_full(){
     gamedata = def_gameconfig()
     commit_game()
 }
+
+document.getElementById("app-version").innerText = `Version: ${require("electron").remote.app.getVersion()}`

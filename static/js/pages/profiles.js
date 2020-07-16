@@ -171,9 +171,9 @@ function editorPage(edit, vals){
     setVals()
 }
 
-function makeForgeSelPart(name, version){
-    var template = `<option value="{{version}},forge" class="text-success">{{name}}</option>`
-    return template.replace("{{version}}", version).replace("{{name}}", name)
+function makeForgeSelPart(name, version, mcVersion){
+    var template = `<option value="{{mcVersion}}-{{version}},forge" class="text-success">{{name}}</option>`
+    return template.replace("{{version}}", version).replace("{{name}}", name).replace("{{mcVersion}}", mcVersion)
 }
 function makeReleaseSelPart(name, version){
     var template = `<option value="{{version}},release" class="text-success">{{name}}</option>`
@@ -196,7 +196,7 @@ function makeInvalidSelPart(name){
     return template.replace("{{name}}", name)
 }
 
-function load(type, callback){
+function load(type, callback=function(){}){
     $.get("https://launchermeta.mojang.com/mc/game/version_manifest.json",function(data){
         var latestLI = document.getElementById("opt-latest")
         var allLI = document.getElementById("opt-all")
@@ -238,7 +238,19 @@ function load(type, callback){
                 }
                 break;
             case "forge":
-                latestLI.innerHTML = makeInvalidSelPart("coming soon...")
+                var supported_forge_versions = {
+                    "latest": {mc: "1.12.2", version: "14.23.5.2854"},
+                    "1.12.2": ["14.23.5.2847", "14.23.5.2854"]
+                    // "1.7.10": ["10.13.4.1558-1.7.10", "10.13.4.1614-1.7.10"]
+                }
+                latestLI.innerHTML = makeForgeSelPart(`Minecraft ${supported_forge_versions.latest.mc} - Forge ${supported_forge_versions.latest.version}`, supported_forge_versions.latest.version, supported_forge_versions.latest.mc)
+                for(var version in supported_forge_versions){
+                    if(version == "latest"){continue}
+                    var versionli = supported_forge_versions[version].reverse()
+                    for(var ver of versionli){
+                        allLI.innerHTML += makeForgeSelPart(`Minecraft ${version} - Forge ${ver}`, ver, version)
+                    }
+                }
                 break;
             default:
                 break;

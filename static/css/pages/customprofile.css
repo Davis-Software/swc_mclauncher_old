@@ -24,7 +24,6 @@
 #playarea .btn{
     transition: all 0.3s;
     font-size: 20px;
-    /* background-color: green; */
     padding-left: 130px;
     padding-right: 130px;
     height: 60px;
@@ -65,4 +64,23 @@
     height: 80px;
     width: 380px;
     left: 690px
+}
+
+#folder-btn{
+    transition: all 0.3s;
+    position: absolute;
+    right: 0;
+    bottom: 80px;
+    border: none;
+    border-top-left-radius: 5px;
+    padding: 5px;
+}
+#folder-btn:hover{
+    padding-bottom: 10px;
+}
+#folder-btn:disabled{
+    background-color: gray;
+}
+#folder-btn:hover:disabled{
+    padding-bottom: 5px;
 }

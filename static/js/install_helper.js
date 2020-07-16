@@ -1,6 +1,7 @@
 const fs = require("fs")
 const checksum = require("checksum")
-const request = require("request")
+const request = require("request");
+const { ipcMain } = require("electron");
 
 function getChecksum(file, callback, fail){
     if(!fs.existsSync(file)){callback(null);return}
@@ -41,3 +42,15 @@ function compareCheckSums(url, file, callback, fail){
 
 exports.checksum = checksum
 exports.compareCheckSums = compareCheckSums
+
+
+function downloadFIleToDir(url, destination, send=function(){}){
+    var file = fs.createWriteStream(destination)
+    var requ = request(url)
+    requ.on("response", function(res){
+        res.pipe(file)
+    })
+    file.on("close", () => {send("readyToLaunch")})
+}
+
+exports.downloadFIleToDir = downloadFIleToDir
