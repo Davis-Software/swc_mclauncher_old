@@ -1,12 +1,15 @@
 function loadHTML(filename){
-    // $("#mainpage").load(filename);
     $("#mainpage").fadeOut(100, function() {
         $(this).load(filename).fadeIn(100);
     });
 }
 function loadURL(url){
-    $("#mainpage").load(url);
+    $("#mainpage").fadeOut(100, function() {
+        $(this).load(url).fadeIn(100);
+    });
 }
 function loadSTRING(str){
-    $("#mainpage").html(str)
+    $("#mainpage").fadeOut(100, function() {
+        $(this).html(str).fadeIn(100);
+    });
 }
