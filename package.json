@@ -25,16 +25,16 @@
         "publishlinux": "electron-builder --x64 --linux -p always"
     },
     "devDependencies": {
-        "electron": "^8.3.4",
+        "electron": "^8.4.0",
         "electron-builder": "^22.5.1"
     },
     "dependencies": {
-        "@popperjs/core": "^2.4.3",
+        "@popperjs/core": "^2.4.4",
         "bootstrap": "^4.5.0",
         "checksum": "^0.1.1",
         "electron-updater": "^4.2.5",
         "jquery": "^3.3.1",
-        "minecraft-launcher-core": "^3.14.2",
+        "minecraft-launcher-core": "^3.14.4",
         "popper.js": "^1.14.4",
         "request": "^2.88.2",
         "uuid": "^8.2.0"
@@ -42,6 +42,11 @@
     "build": {
         "appId": "org.software-city.app.swc_mclauncher",
         "afterPack": "./afterPackHook.js",
+        "extraFiles": [
+            "TODO.md",
+            "CHANGELOG.md",
+            "README.md"
+        ],
         "linux": {
             "target": "AppImage",
             "icon": "./static/logos/256x256.png",
