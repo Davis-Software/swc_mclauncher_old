@@ -140,3 +140,11 @@ ipcMain.on("startmc", function(ev, args){
 ipcMain.on("startmoddedmc", function(ev, args){
     launcher.launchModded(sendToWindow, args)
 })
+ipcMain.on("launchCustomMod", function(ev, args){
+    launcher.launchCustomMod(sendToWindow, args)
+})
+
+ipcMain.on("call", function(ev, func, ...args){
+    var helper = require("./static/js/install_helper.js")
+    helper[func](...args, send=sendToWindow)
+})

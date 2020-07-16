@@ -85,3 +85,12 @@
 - some QOL fixes
 - added docs [here](https://projects.software-city.org/docs/electron/swc_mclauncher)
 - updated [`README.md`](https://github.com/Software-City/swc_mclauncher/blob/dev/README.md)
+
+## 0.2.4
+- App version is shown on settings page
+- Added info page
+- Added forge versions:
+  - 1.12.2-14.23.5.2854
+  - 1.12.2-14.23.5.2847
+- Forge can now be started through custom profiles
+- some more QOL fixes
