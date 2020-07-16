@@ -1,3 +1,5 @@
+var { shell } = require("electron")
+
 String.prototype.includesMult = function(searchlist, position=undefined){
     if(position!=undefined){
         for(var x of searchlist){

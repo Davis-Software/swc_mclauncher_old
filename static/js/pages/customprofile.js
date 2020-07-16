@@ -10,7 +10,13 @@ var customdata = getProfile(tempdata.loadcustompage)
 
 $(".custom-name").text(customdata.name)
 $(".custom-date").text(customdata.date)
-$(".custom-mcver").text(customdata.mcVersion)
+
+if(customdata.type == "forge"){
+    $(".custom-mcver").text(customdata.mcVersion.split("-")[0] + " | Forge " + customdata.mcVersion.split("-")[1])
+}else{
+    $(".custom-mcver").text(customdata.mcVersion)
+}
+
 $(".custom-type").text(customdata.type)
 if(customdata.icon != ""){
     $(".custom-icon").attr("src", customdata.icon)
@@ -26,34 +32,99 @@ if(customdata.bg != ""){
 
 
 
-var { ipcRenderer } = require('electron')
+var { ipcRenderer, shell } = require('electron')
 var remote = require("electron").remote
-
-function launch(){
-    var rootpath = path.join(getGameVal("gameOptions").mcPath, "profiles", customdata.id)
-    var data = {
-        credentials : getVal("credentials"),
-        mcPath : rootpath,
-        XmxRam : getGameVal("gameOptions").XmxRam,
-        version: customdata.mcVersion,
-        type: customdata.type
-    }
-    var str = ""
-    if(!fs.existsSync(rootpath)){
-        for(var y of rootpath.split("\\")){
-            str += `${y}\\`
-            if(!fs.existsSync(str)){
-                fs.mkdirSync(str)
-            }
-        }
-        // fs.mkdirSync(rootpath)
-    }
-    ipcRenderer.send('startmc', data)
-}
 
 var launchbtn = document.getElementById("startbtn")
 var progress = document.getElementById("start-progress")
 var pr_bar = document.getElementById("progress-bar")
+
+var rootpath = path.join(getGameVal("gameOptions").mcPath, "profiles", customdata.id)
+
+if(!fs.existsSync(rootpath)){
+    document.getElementById("folder-btn").disabled = true
+    launchbtn.innerText = "INSTALL"
+    launchbtn.classList.replace("btn-success", "btn-primary")
+}
+
+function openProfileFolder(){
+    shell.openItem(rootpath)
+    if(!fs.existsSync(path.join(rootpath, "mods"))){
+        fs.mkdirSync(path.join(rootpath, "mods"))
+    }
+}
+
+function launch(){
+    var str = "";
+    var data;
+    if(!fs.existsSync(rootpath)){
+        for(var y of rootpath.split(osPathSplitter)){
+            str += `${y}${osPathSplitter}`
+            if(!fs.existsSync(str)){
+                fs.mkdirSync(str)
+            }
+        }
+        document.getElementById("folder-btn").disabled = false
+        launchbtn.innerText = "PLAY"
+    launchbtn.classList.replace("btn-primary", "btn-success")
+    }
+
+    if(customdata.type == "forge"){
+        var forgeJarPath = path.join(rootpath, "bin", "forge")
+        var forgeJarName = `forge-${customdata.mcVersion}-universal.jar`
+
+        if(!fs.existsSync(forgeJarPath)){
+            for(var y of forgeJarPath.split(osPathSplitter)){
+                str += `${y}${osPathSplitter}`
+                if(!fs.existsSync(str)){
+                    fs.mkdirSync(str)
+                }
+            }
+        }
+        if(!fs.existsSync(path.join(forgeJarPath, forgeJarName))){
+            launchbtn.hidden = true
+            progress.innerText = `Downloading ${customdata.mcVersion}.jar`
+            progress.style.width = "100%"
+            pr_bar.style.height = "20px"
+            progress.classList.add("progress-bar-striped", "progress-bar-animated")
+            var url = `https://files.minecraftforge.net/maven/net/minecraftforge/forge/${customdata.mcVersion}/${forgeJarName}`
+            var dst = path.join(forgeJarPath, forgeJarName)
+            ipcRenderer.send("call", "downloadFIleToDir", url, dst)
+        }else{
+            continz()
+        }
+
+        ipcRenderer.on("readyToLaunch", function(){
+            progress.innerText = `Preparing to launch...`
+            progress.style.width = "100%"
+            pr_bar.style.height = "20px"
+            progress.classList.add("progress-bar-striped", "progress-bar-animated")
+            continz()
+        })
+
+        function continz(){
+            data = {
+                credentials : getVal("credentials"),
+                mcPath : rootpath,
+                XmxRam : getGameVal("gameOptions").XmxRam,
+                version: customdata.mcVersion.split("-")[0],
+                type: "forge",
+                forge: path.join(forgeJarPath, forgeJarName)
+            }
+            ipcRenderer.send('launchCustomMod', data)
+        }
+        
+    }else{
+        data = {
+            credentials : getVal("credentials"),
+            mcPath : rootpath,
+            XmxRam : getGameVal("gameOptions").XmxRam,
+            version: customdata.mcVersion,
+            type: customdata.type
+        }
+        ipcRenderer.send('launchCustomMod', data)
+    }
+}
 
 
 ipcRenderer.on("mc-init", function(ev){

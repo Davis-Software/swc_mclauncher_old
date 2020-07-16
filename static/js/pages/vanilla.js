@@ -44,8 +44,8 @@ function launch(version=null){
     var rootpath = path.join(getGameVal("gameOptions").mcPath, "vanilla")
     var str = ""
     if(!fs.existsSync(rootpath)){
-        for(var y of rootpath.split("\\")){
-            str += `${y}\\`
+        for(var y of rootpath.split(osPathSplitter)){
+            str += `${y}${osPathSplitter}`
             if(!fs.existsSync(str)){
                 fs.mkdirSync(str)
             }

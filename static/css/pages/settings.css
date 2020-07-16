@@ -7,3 +7,10 @@
 .custom-checkbox{
     margin-bottom: 8px;
 }
+
+#app-version{
+    position: fixed;
+    bottom: 2vh;
+    left: 17vw;
+    color: gray;
+}
