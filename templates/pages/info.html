@@ -42,6 +42,15 @@
     <div id="parent">
 
         <div>
+            <button data-toggle="collapse" data-target="#col">Readme File</button>
+            <div class="collapse" id="col" data-parent="#parent">
+                <div class="rme ml-3">
+
+                </div>
+            </div>
+        </div>
+
+        <div>
             <button data-toggle="collapse" data-target="#col1">Development Progress</button>
             <div class="collapse" id="col1" data-parent="#parent">
                 <div class="dev ml-3">
@@ -81,6 +90,7 @@
 
         highlight: function (/*str, lang*/) { return ''; }
     });
+    $(".rme").html(md.render(loadMD("README.md")))
     $(".dev").html(md.render(loadMD("TODO.md")))
     $(".clg").html(md.render(loadMD("CHANGELOG.md")))
 

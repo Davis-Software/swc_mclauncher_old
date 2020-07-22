@@ -1,58 +1,66 @@
-const { app, Menu } = require('electron')
+const { app, Menu, shell } = require('electron')
 const { getVal } = require("./../settingshandler.js")
 const iswin32 = process.platform === "win32"
 
 const template = [
-  {
-    label: 'View',
-    submenu: [
-      { role: 'reload' },
-      { type: 'separator' },
-      { role: 'togglefullscreen' }
-    ]
-  },
-  {
-    role: 'help',
-    submenu: [
-      {
-        label: 'Learn More',
-        click: async() => {
-          const { shell } = require('electron')
-          await shell.openExternal('https://projects.software-city.org/resources/electron/interfaceapp')
-        }
-      }
-    ]
-  }
+    {
+        label: 'View',
+        submenu: [
+            { role: 'reload' }
+        ]
+    },
+    {
+        role: 'help',
+        submenu: [
+            {
+                label: 'Learn More',
+                click: async() => {
+                    await shell.openExternal('https://projects.software-city.org/projects/electron/swc_mclauncher')
+                }
+            },
+            {
+                label: 'GitHub',
+                click: async() => {
+                    await shell.openExternal('https://github.com/Software-City/swc_mclauncher')
+                }
+            }
+        ]
+    }
 ]
 
 const devtemplate = [
-  {
-    label: 'View',
-    submenu: [
-      { role: 'reload' },
-      { role: 'forcereload' },
-      { type: 'separator' },
-      { role: 'togglefullscreen' }
-    ]
-  },
-  {
-    label: 'Window',
-    submenu: [
-      { role: 'toggledevtools' }
-    ]
-  },
-  {
-    role: 'help',
-    submenu: [
-      {
-        label: 'Learn More',
-        click: async () => {
-          const { shell } = require('electron')
-          await shell.openExternal('https://projects.software-city.org/resources/electron/interfaceapp')
-        }
-      }
-    ]
-  }
+    {
+        label: 'View',
+        submenu: [
+            { role: 'reload' },
+            { role: 'forcereload' },
+            { type: 'separator' },
+            { role: 'togglefullscreen' }
+        ]
+    },
+    {
+        label: 'Window',
+        submenu: [
+            { role: 'toggledevtools' }
+        ]
+    },
+    {
+        role: 'help',
+        submenu: [
+            {
+                label: 'Learn More',
+                click: async() => {
+                    await shell.openExternal('https://projects.software-city.org/projects/electron/swc_mclauncher')
+                }
+            },
+            {
+                label: 'GitHub',
+                click: async() => {
+                    await shell.openExternal('https://github.com/Software-City/swc_mclauncher')
+                }
+            }
+        ]
+    }
 ]
 
 var menu;

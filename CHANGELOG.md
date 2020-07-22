@@ -94,3 +94,9 @@
   - 1.12.2-14.23.5.2847
 - Forge can now be started through custom profiles
 - some more QOL fixes
+
+## 0.2.5
+- fixed an error when starting a new forge profile which forces to click start again
+- fixed help menu pointing to non existant website
+- Added Readme.md to Info page
+- reduced app size by removing unneccessery files
