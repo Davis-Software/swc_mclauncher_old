@@ -99,3 +99,4 @@
 - fixed an error when starting a new forge profile which forces to click start again
 - fixed help menu pointing to non existant website
 - Added Readme.md to Info page
+- reduced app size by removing unneccessery files
