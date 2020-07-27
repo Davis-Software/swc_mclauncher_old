@@ -239,8 +239,8 @@ function load(type, callback=function(){}){
                 break;
             case "forge":
                 var supported_forge_versions = {
-                    "latest": {mc: "1.12.2", version: "14.23.5.2854"},
-                    "1.12.2": ["14.23.5.2847", "14.23.5.2854"]
+                    "latest": {mc: "1.12.2", version: "14.23.5.2847"},
+                    "1.12.2": ["14.23.5.2847"]
                     // "1.7.10": ["10.13.4.1558-1.7.10", "10.13.4.1614-1.7.10"]
                 }
                 latestLI.innerHTML = makeForgeSelPart(`Minecraft ${supported_forge_versions.latest.mc} - Forge ${supported_forge_versions.latest.version}`, supported_forge_versions.latest.version, supported_forge_versions.latest.mc)
