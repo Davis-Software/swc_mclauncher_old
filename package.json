@@ -11,7 +11,7 @@
         "url": "https://projects.software-city.org/projects/electron/swc_mclauncher"
     },
     "name": "swc_mclauncher",
-    "version": "0.2.5",
+    "version": "1.0.0",
     "description": "SWC Minecraft Launcher",
     "repository": "https://github.com/Software-City/swc_mclauncher",
     "license": "MIT",

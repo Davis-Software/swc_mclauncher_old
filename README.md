@@ -25,7 +25,7 @@ You can see all changes [here](https://github.com/Software-City/swc_mclauncher/b
 - Go to [releases](https://github.com/Software-City/swc_mclauncher/releases/latest) page and download the `SWC Minecraft Launcher Setup x.x.x.exe` file
 - Run the installer
 
-(Linux [download](https://github.com/Software-City/swc_mclauncher/releases/download/v0.2.0/SWC-Minecraft-Launcher-0.2.0.AppImage))
+(Linux [download](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.0/SWC-Minecraft-Launcher-1.0.0.AppImage))
 
 ### from source
 - Clone and extract the source files to a directory

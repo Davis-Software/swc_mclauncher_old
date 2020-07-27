@@ -13,4 +13,4 @@ More features will still be added.
 |  0.2.4  | Forge in Profiles                            |  ✅  |
 |  1.0.0  | 1.0 Release                                  |  ✅  |
 |  1.0.1  | Custom resource packs                        |  ❌  |
-|  1.0.1  | Resource pack 24 support                     |  ❌  |
+|  1.0.2  | Resource pack 24 support                     |  ❌  |

@@ -97,6 +97,9 @@
 
 ## 0.2.5
 - fixed an error when starting a new forge profile which forces to click start again
-- fixed help menu pointing to non existant website
+- fixed help menu pointing to non existent website
 - Added Readme.md to Info page
-- reduced app size by removing unneccessery files
+- reduced app size by removing unnecessary files
+
+## 1.0.0
+- released 1.0 for windows & linux
