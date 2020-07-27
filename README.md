@@ -22,10 +22,14 @@ You can see all changes [here](https://github.com/Software-City/swc_mclauncher/b
 - Minecraft account, duh
 
 ### pre-packaged installer
-- Go to [releases](https://github.com/Software-City/swc_mclauncher/releases/latest) page and download the `SWC Minecraft Launcher Setup x.x.x.exe` file
-- Run the installer
+##### Windows x64
+- [Web-based Installer (Recommended)](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.0/SWC-Minecraft-Launcher-Web-Setup-1.0.0.exe)
+- [Normal Installer](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.0/SWC-Minecraft-Launcher-Setup-1.0.0.exe)
+- [.7z file](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.0/swc_mclauncher-1.0.0-x64.nsis.7z)
 
-(Linux [download](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.0/SWC-Minecraft-Launcher-1.0.0.AppImage))
+##### Linux
+- [AppImage (Recommended)](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.0/SWC-Minecraft-Launcher-1.0.0.AppImage)
+- [.deb Package](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.0/swc_mclauncher_1.0.0_amd64.deb)
 
 ### from source
 - Clone and extract the source files to a directory
