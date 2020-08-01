@@ -76,6 +76,9 @@ try {
 
 
 function init_settings(){
+    if(!fs.existsSync(appPath)){
+        fs.mkdirSync(appPath)
+    }
     if(!fs.existsSync(setfile)){
         fs.writeFileSync(setfile, JSON.stringify(def_config));
     }
