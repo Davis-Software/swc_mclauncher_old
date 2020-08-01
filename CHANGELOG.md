@@ -103,3 +103,7 @@
 
 ## 1.0.0
 - released 1.0 for windows & linux
+
+## 1.0.1
+- macOS release
+- fixed a bug where the data folder couldn'n be created
