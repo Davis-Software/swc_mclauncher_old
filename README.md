@@ -17,15 +17,23 @@ You can see all changes [here](https://github.com/Software-City/swc_mclauncher/b
 
 ## Download
 ### Requirements
-- Winodws 10 64bit or Linux
+- Winodws 10 64bit, MacOS Catalina 10.15.6 or Linux
 - Java 64-Bit
 - Minecraft account, duh
 
 ### pre-packaged installer
-- Go to [releases](https://github.com/Software-City/swc_mclauncher/releases/latest) page and download the `SWC Minecraft Launcher Setup x.x.x.exe` file
-- Run the installer
+##### Windows x64
+- [Web-based Installer (Recommended)](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.1/SWC-Minecraft-Launcher-Web-Setup-1.0.1.exe)
+- [Normal Installer](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.1/SWC-Minecraft-Launcher-Setup-1.0.1.exe)
+- [.7z file](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.1/swc_mclauncher-1.0.1-x64.nsis.7z)
 
-(Linux [download](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.0/SWC-Minecraft-Launcher-1.0.0.AppImage))
+##### MacOS
+- [DMG Package (Recommended)](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.1/SWC-Minecraft-Launcher-1.0.1.dmg)
+- [PKG Installer (also ok)](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.1/SWC-Minecraft-Launcher-1.0.1.pkg)
+
+##### Linux
+- [AppImage (Recommended)](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.1/SWC-Minecraft-Launcher-1.0.1.AppImage)
+- [.deb Package](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.1/swc_mclauncher_1.0.1_amd64.deb)
 
 ### from source
 - Clone and extract the source files to a directory

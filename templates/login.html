@@ -93,13 +93,13 @@
                                     setVal("credentials",
                                     {
                                         "email": data.user.username,
-                                        "password": auth.encrypt(password),
+                                        "password": password,
                                         "accessToken": data.accessToken,
                                         "clientToken": data.clientToken,
                                         "username": data.selectedProfile.name,
                                         "uuid": data.selectedProfile.id,
                                         "selected_profile": data.selectedProfile,
-                                        "user_properties": {}
+                                        "user_properties": data.user.properties
                                     })
                                     loaddash();
                                 }, function(){
@@ -127,7 +127,7 @@
                                 "username": data.selectedProfile.name,
                                 "uuid": data.selectedProfile.id,
                                 "selected_profile": data.selectedProfile,
-                                "user_properties": {}
+                                "user_properties": data.user.properties
                             })
                             loaddash();
                         },function(err){

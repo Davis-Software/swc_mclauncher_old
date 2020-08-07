@@ -60,7 +60,7 @@
             }
         },
         "win": {
-            "target": "nsis-web",
+            "target": "msi",
             "icon": ".\\static\\logos\\logo.ico",
             "publish": {
                 "provider": "github",
