@@ -21,7 +21,7 @@ $.get("https://launchermeta.mojang.com/mc/game/version_manifest.json",function(d
     var count = 0
     for(let version of data.versions){
         if(version.type == "release"){
-            if(version.id.includes("1.8") || version.id.includes("1.7.")){
+            if( version.id.includes("1.7.") ){
                 releasesLI.innerHTML += makeInvalidSelPart(version.id)
             }else{
                 releasesLI.innerHTML += makeReleaseSelPart(version.id, version.id)

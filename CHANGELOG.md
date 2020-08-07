@@ -107,3 +107,7 @@
 ## 1.0.1
 - macOS release
 - fixed a bug where the data folder couldn'n be created
+
+## 1.0.2
+- Fixed some login parts
+- Fixed 1.8

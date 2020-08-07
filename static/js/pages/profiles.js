@@ -209,7 +209,7 @@ function load(type, callback=function(){}){
                 latestLI.innerHTML = makeReleaseSelPart(`${data.latest.release}`, data.latest.release)
                 for(let version of data.versions){
                     if(version.type == "release"){
-                        if(version.id.includes("1.8") || version.id.includes("1.7.")){
+                        if( version.id.includes("1.7.") ){
                             allLI.innerHTML += makeInvalidSelPart(version.id)
                         }else{
                             allLI.innerHTML += makeReleaseSelPart(version.id, version.id)

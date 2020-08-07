@@ -11,7 +11,7 @@
         "url": "https://projects.software-city.org/projects/electron/swc_mclauncher"
     },
     "name": "swc_mclauncher",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "SWC Minecraft Launcher",
     "repository": "https://github.com/Software-City/swc_mclauncher",
     "license": "MIT",
@@ -60,7 +60,7 @@
             }
         },
         "win": {
-            "target": "nsis-web",
+            "target": "msi",
             "icon": ".\\static\\logos\\logo.ico",
             "publish": {
                 "provider": "github",
