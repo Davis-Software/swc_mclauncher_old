@@ -23,17 +23,17 @@ You can see all changes [here](https://github.com/Software-City/swc_mclauncher/b
 
 ### pre-packaged installer
 ##### Windows x64
-- [Web-based Installer (Recommended)](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.1/SWC-Minecraft-Launcher-Web-Setup-1.0.1.exe)
-- [Normal Installer](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.1/SWC-Minecraft-Launcher-Setup-1.0.1.exe)
-- [.7z file](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.1/swc_mclauncher-1.0.1-x64.nsis.7z)
+- [Web-based Installer (Recommended)](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.3/SWC-Minecraft-Launcher-Web-Setup-1.0.3.exe)
+- [Normal Installer](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.3/SWC-Minecraft-Launcher-Setup-1.0.3.exe)
+- [.7z file](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.3/swc_mclauncher-1.0.3-x64.nsis.7z)
 
 ##### MacOS
-- [DMG Package (Recommended)](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.1/SWC-Minecraft-Launcher-1.0.1.dmg)
-- [PKG Installer (also ok)](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.1/SWC-Minecraft-Launcher-1.0.1.pkg)
+- [DMG Package (Recommended)](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.3/SWC-Minecraft-Launcher-1.0.3.dmg)
+- [PKG Installer (also ok)](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.3/SWC-Minecraft-Launcher-1.0.3.pkg)
 
 ##### Linux
-- [AppImage (Recommended)](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.1/SWC-Minecraft-Launcher-1.0.1.AppImage)
-- [.deb Package](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.1/swc_mclauncher_1.0.1_amd64.deb)
+- [AppImage (Recommended)](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.3/SWC-Minecraft-Launcher-1.0.3.AppImage)
+- [.deb Package](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.3/swc_mclauncher_1.0.3_amd64.deb)
 
 ### from source
 - Clone and extract the source files to a directory

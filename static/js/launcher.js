@@ -103,7 +103,8 @@ exports.launchCustomMod = function launchCustomMod(send, args){
         root: args.mcPath,
         version: {
             number: args.version,
-            type: args.type
+            type: args.type,
+            custom: args.custom
         },
         memory: {
             max: String(args.XmxRam),
