@@ -99,6 +99,7 @@ var pname = document.getElementById("edit-name")
 var icon = document.getElementById("edit-icon")
 var bg = document.getElementById("edit-bg")
 var versionsel = document.getElementById("edit-version")
+var cJAR_inp = document.getElementById("custom-path")
 
 function editorPage(edit, vals){
 
@@ -112,9 +113,23 @@ function editorPage(edit, vals){
         var snapshotTAB = document.getElementById("snapshots")
         var betasTAB = document.getElementById("betas")
         var forgeTAB = document.getElementById("forge")
+        var customJAR = document.getElementById("custom")
         var tabBTNs = document.getElementsByClassName("nav-item")
 
         if(edit){
+
+            var rootpath = path.join(getGameVal("gameOptions").mcPath, "profiles", vals.id)
+            var inpfile = path.join(rootpath, "launcher_profiles.json")
+
+            if(fs.existsSync(inpfile)){
+                var inpdata = JSON.parse(fs.readFileSync(inpfile, {encoding: "utf-8"}))
+                cJAR_inp.innerHTML = ""
+                for(let x in inpdata.profiles){
+                    cJAR_inp.innerHTML += `<option value="${inpdata.profiles[x].lastVersionId}">${inpdata.profiles[x].name}</option>`
+                }
+            }else{
+                cJAR_inp.innerHTML = `<option disabled>No selectable game jars avalible</option>`
+            }
 
             load(vals.type, function(){
                 versionsel.value = `${vals.mcVersion},${vals.type}`
@@ -123,12 +138,14 @@ function editorPage(edit, vals){
             pname.value = vals.name,
             icon.value = vals.icon,
             bg.value = vals.bg,
+            cJAR_inp.value = vals.JAR
             document.getElementById("save-btn").setAttribute("onclick", `save('${vals.id}')`)
 
             makeTabInvisible(releasesTAB)
             makeTabInvisible(snapshotTAB)
             makeTabInvisible(betasTAB)
             makeTabInvisible(forgeTAB)
+            makeTabInvisible(customJAR)
             for(var x of tabBTNs){makeTabButtonInactive(x)}
 
             switch (vals.type) {
@@ -152,18 +169,24 @@ function editorPage(edit, vals){
                     makeTabVisible(betasTAB);
                     makeTabButtonActive(tabBTNs[2])
                     break;
+                case "custom":
+                    makeTabVisible(customJAR);
+                    makeTabButtonActive(tabBTNs[4])
+                    break;
                 default:
                     makeTabVisible(releasesTAB);
                     makeTabButtonActive(tabBTNs[0])
                     break;
             }
         }else{
-            pname.value = "",
-            icon.value = "",
+            pname.value = ""
+            icon.value = ""
             bg.value = ""
+            cJAR_inp.innerHTML = `<option disabled>Please launch the game at least once</option>`
+            cJAR_inp.value = ""
             document.getElementById("save-btn").setAttribute("onclick", `save()`)
             load("release")
-            makeTabVisible(releasesTAB);
+            makeTabVisible(releasesTAB)
             makeTabButtonActive(tabBTNs[0])
         }
         overview.hidden = true; editor.hidden = false
@@ -189,6 +212,10 @@ function makeBetaSelPart(name, version){
 }
 function makeAlphaSelPart(name, version){
     var template = `<option value="{{version}},old_alpha" class="text-danger">{{name}}</option>`
+    return template.replace("{{version}}", version).replace("{{name}}", name)
+}
+function makeCustomSelPart(name, version){
+    var template = `<option value="{{version}},custom" class="text-success">{{name}}</option>`
     return template.replace("{{version}}", version).replace("{{name}}", name)
 }
 function makeInvalidSelPart(name){
@@ -249,6 +276,18 @@ function load(type, callback=function(){}){
                     var versionli = supported_forge_versions[version].reverse()
                     for(var ver of versionli){
                         allLI.innerHTML += makeForgeSelPart(`Minecraft ${version} - Forge ${ver}`, ver, version)
+                    }
+                }
+                break;
+            case "custom":
+                latestLI.innerHTML = makeReleaseSelPart(`${data.latest.release}`, data.latest.release)
+                for(let version of data.versions){
+                    if(version.type == "release"){
+                        if( version.id.includes("1.7.") ){
+                            allLI.innerHTML += makeInvalidSelPart(version.id)
+                        }else{
+                            allLI.innerHTML += makeCustomSelPart(version.id, version.id)
+                        }
                     }
                 }
                 break;
@@ -315,6 +354,7 @@ function save(id=undefined){
             bg: bg.value,
             type: version.split(",")[1],
             mcVersion: version.split(",")[0],
+            JAR: cJAR_inp.value,
             date: new Date().toDateString()
         }
         gamedata.profiles[propCountFromId(getGameVal("profiles"), id)] = data
@@ -327,6 +367,7 @@ function save(id=undefined){
             bg: bg.value,
             type: version.split(",")[1],
             mcVersion: version.split(",")[0],
+            JAR: cJAR_inp.value,
             date: new Date().toDateString()
         }
         

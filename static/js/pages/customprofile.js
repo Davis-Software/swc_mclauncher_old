@@ -13,6 +13,8 @@ $(".custom-date").text(customdata.date)
 
 if(customdata.type == "forge"){
     $(".custom-mcver").text(customdata.mcVersion.split("-")[0] + " | Forge " + customdata.mcVersion.split("-")[1])
+}else if(customdata.type == "custom"){
+    $(".custom-mcver").text(customdata.mcVersion + " | " + customdata.JAR)
 }else{
     $(".custom-mcver").text(customdata.mcVersion)
 }
@@ -116,6 +118,32 @@ function launch(){
             ipcRenderer.send('launchCustomMod', data)
         }
         
+    }else if(customdata.type == "custom"){
+        var impfile = path.join(rootpath, "launcher_profiles.json")
+        if(!fs.existsSync(impfile)){
+            fs.writeFileSync(impfile,'{"profiles":{}}')
+        }
+        if(customdata.JAR == ""){
+            data = {
+                credentials : getVal("credentials"),
+                mcPath : rootpath,
+                XmxRam : getGameVal("gameOptions").XmxRam,
+                version: customdata.mcVersion,
+                type: "custom",
+                custom: undefined
+            }
+        }else{
+            data = {
+                credentials : getVal("credentials"),
+                mcPath : rootpath,
+                XmxRam : getGameVal("gameOptions").XmxRam,
+                version: customdata.mcVersion,
+                type: "custom",
+                custom: customdata.JAR
+            }
+            console.log(data)
+        }
+        ipcRenderer.send('launchCustomMod', data)
     }else{
         data = {
             credentials : getVal("credentials"),
