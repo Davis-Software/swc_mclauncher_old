@@ -51,6 +51,9 @@
             <li class="nav-item">
                 <a class="nav-link" data-toggle="pill" href="#forge" onclick="load('forge')">forge</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#custom" onclick="load('custom')">custom JAR</a>
+            </li>
         </ul>
         <br>
         <select class="versions custom-select" id="edit-version">
@@ -64,6 +67,25 @@
             <div class="tab-pane container fade" id="forge">
                 <br>
                 You can add mods and other content through the 'Show Folder' Button on the Profile page
+            </div>
+            <div class="tab-pane fluid-container fade" id="custom">
+                <br>
+                <select class="custom-select" id="custom-path"></select>
+                <br><br>
+                How to make a custom Version Profile:
+                    (Example with OptiFine)
+                <div class="container">
+                    <ol>
+                        <li>Select the Version of your custom jar</li>
+                        <li>Don't select anything in the selection menu beneath</li>
+                        <li>Start the profile and close again after successful start</li>
+                        <li>Press "Show Folder" Button on profile page</li>
+                        <li>Remember or copy folder location that opened in explorer</li>
+                        <li>Run OptiFine installer and install into the directory you copied the path of (Close launcher beforehand)</li>
+                        <li>Edit the Profile again and select your JAR</li>
+                        <li>Save profile and start Minecraft</li>
+                    </ol>
+                </div>
             </div>
         </div>
     </div>

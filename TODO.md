@@ -14,5 +14,4 @@ More features will still be added.
 |  1.0.0  | 1.0 Release                                  |  ✅  |
 |  1.0.1  | MacOS release                                |  ✅  |
 |  1.0.2  | Fix 1.8                                      |  ✅  |
-|  1.0.2  | Custom resource packs                        |  ❌  |
-|  1.0.3  | Resource pack 24 support                     |  ❌  |
+|  1.0.3  | Custom JARs like OptiFine                    |  ✅  |
