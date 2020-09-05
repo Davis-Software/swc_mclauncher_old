@@ -115,3 +115,6 @@
 ## 1.0.3
 - Added the ability to add custom JAR files as versions
   (for example OptiFine or currently not auto-supported forge versions)
+
+## 1.0.4
+- Fixed a login bug

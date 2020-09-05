@@ -23,9 +23,9 @@ You can see all changes [here](https://github.com/Software-City/swc_mclauncher/b
 
 ### pre-packaged installer
 ##### Windows x64
-- [Web-based Installer (Recommended)](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.3/SWC-Minecraft-Launcher-Web-Setup-1.0.3.exe)
-- [Normal Installer](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.3/SWC-Minecraft-Launcher-Setup-1.0.3.exe)
-- [.7z file](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.3/swc_mclauncher-1.0.3-x64.nsis.7z)
+- [Web-based Installer (Recommended)](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.4/SWC-Minecraft-Launcher-Web-Setup-1.0.4.exe)
+- [Normal Installer](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.4/SWC-Minecraft-Launcher-Setup-1.0.4.exe)
+- [.7z file](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.4/swc_mclauncher-1.0.4-x64.nsis.7z)
 
 ##### MacOS
 - [DMG Package (Recommended)](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.3/SWC-Minecraft-Launcher-1.0.3.dmg)
