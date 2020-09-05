@@ -80,37 +80,53 @@
                         var accessToken = getVal("credentials").accessToken;
                         var clientToken = getVal("credentials").clientToken;
                         
-                        auth.validate(accessToken, clientToken, function(data){
-                            if(data.refresh){
-                                settings.credentials.accessToken = data.new
-                                commit()
-                            }
-                            loaddash();
-                        }, function(err){
-                            if(err.status===403){
-                                auth.loginFromConfig(function(data){
-                                    setVal("loggedin", true);
-                                    setVal("credentials",
-                                    {
-                                        "email": data.user.username,
-                                        "password": password,
-                                        "accessToken": data.accessToken,
-                                        "clientToken": data.clientToken,
-                                        "username": data.selectedProfile.name,
-                                        "uuid": data.selectedProfile.id,
-                                        "selected_profile": data.selectedProfile
-                                    })
-                                    loaddash();
-                                }, function(){
-                                    info.innerText = `Error: Could not validate login info! Please re-login`
-                                    loadanim(false)
-                                })
-                            }else{
-                                info.innerText = `Error: ${err.status} - ${err.statusText}`
-                                loadanim(false)
-                            }
+                        // auth.validate(accessToken, clientToken, function(data){
+                        //     if(data.refresh){
+                        //         settings.credentials.accessToken = data.new
+                        //         commit()
+                        //     }
+                        //     loaddash();
+                        // }, function(err){
+                        //     if(err.status===403){
+                        //         auth.loginFromConfig(function(data){
+                        //             setVal("loggedin", true);
+                        //             setVal("credentials",
+                        //             {
+                        //                 "email": data.user.username,
+                        //                 "password": password,
+                        //                 "accessToken": data.accessToken,
+                        //                 "clientToken": data.clientToken,
+                        //                 "username": data.selectedProfile.name,
+                        //                 "uuid": data.selectedProfile.id,
+                        //                 "selected_profile": data.selectedProfile
+                        //             })
+                        //             loaddash();
+                        //         }, function(){
+                        //             info.innerText = `Error: Could not validate login info! Please re-login`
+                        //             loadanim(false)
+                        //         })
+                        //     }else{
+                        //         info.innerText = `Error: ${err.status} - ${err.statusText}`
+                        //         loadanim(false)
+                        //     }
+                        // })
+                        auth.loginFromConfig(data => {
+                            setVal("loggedin", true)
+                            setVal("credentials", {
+                                "email": data.user.username,
+                                "password": getVal("credentials").password,
+                                "accessToken": data.accessToken,
+                                "clientToken": data.clientToken,
+                                "username": data.selectedProfile.name,
+                                "uuid": data.selectedProfile.id,
+                                "selected_profile": data.selectedProfile
+                            })
+                            loaddash()
+                        }, _=>{
+                            info.innerText = `Error: Could not validate login info! Please re-login`
+                            loadanim(false)
                         })
-                        
+                    
                     }else{
                         var username = document.getElementById("enter-username").value;
                         var password = document.getElementById("enter-password").value;
