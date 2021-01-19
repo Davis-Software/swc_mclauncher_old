@@ -11,7 +11,7 @@
         "url": "https://projects.software-city.org/projects/electron/swc_mclauncher"
     },
     "name": "swc_mclauncher",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "SWC Minecraft Launcher",
     "repository": "https://github.com/Software-City/swc_mclauncher",
     "license": "MIT",
@@ -27,19 +27,19 @@
         "publishmacOS": "electron-builder --x64 --mac -p always"
     },
     "devDependencies": {
-        "electron": "^8.4.0",
-        "electron-builder": "^22.5.1"
+        "electron": "^8.5.5",
+        "electron-builder": "^22.9.1"
     },
     "dependencies": {
-        "@popperjs/core": "^2.4.4",
-        "bootstrap": "^4.5.0",
+        "@popperjs/core": "^2.6.0",
+        "bootstrap": "^4.5.3",
         "checksum": "^0.1.1",
-        "electron-updater": "^4.2.5",
+        "electron-updater": "^4.3.5",
         "jquery": "^3.3.1",
-        "minecraft-launcher-core": "^3.14.4",
+        "minecraft-launcher-core": "^3.16.1",
         "popper.js": "^1.14.4",
         "request": "^2.88.2",
-        "uuid": "^8.2.0"
+        "uuid": "^8.3.2"
     },
     "build": {
         "appId": "org.software-city.app.swc_mclauncher",
@@ -60,7 +60,7 @@
             }
         },
         "win": {
-            "target": "nsis",
+            "target": "nsis-web",
             "icon": ".\\static\\logos\\logo.ico",
             "publish": {
                 "provider": "github",

@@ -15,3 +15,5 @@ More features will still be added.
 |  1.0.1  | MacOS release                                |  ✅  |
 |  1.0.2  | Fix 1.8                                      |  ✅  |
 |  1.0.3  | Custom JARs like OptiFine                    |  ✅  |
+|  1.0.4  | Launcher Fixes                               |  ✅  |
+|  1.0.5  | Cosmetic overhaul update                     |  ✅  |
