@@ -138,7 +138,7 @@ function launch(){
                 mcPath : rootpath,
                 XmxRam : getGameVal("gameOptions").XmxRam,
                 version: customdata.mcVersion,
-                type: "custom",
+                type: "release",
                 custom: customdata.JAR
             }
             console.log(data)
