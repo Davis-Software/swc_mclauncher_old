@@ -11,7 +11,7 @@
         "url": "https://projects.software-city.org/projects/electron/swc_mclauncher"
     },
     "name": "swc_mclauncher",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "SWC Minecraft Launcher",
     "repository": "https://github.com/Software-City/swc_mclauncher",
     "license": "MIT",
@@ -35,8 +35,9 @@
         "bootstrap": "^4.5.3",
         "checksum": "^0.1.1",
         "electron-updater": "^4.3.5",
+        "fs-extra": "^9.0.1",
         "jquery": "^3.3.1",
-        "minecraft-launcher-core": "^3.16.1",
+        "minecraft-launcher-core": "^3.14.4",
         "popper.js": "^1.14.4",
         "request": "^2.88.2",
         "uuid": "^8.3.2"
