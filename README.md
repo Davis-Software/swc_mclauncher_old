@@ -1,8 +1,16 @@
+# Due to Mojang Switching to Microsoft Accounts this repo will not receive any further updates!
+
+
+---
+---
+---
+
+
 # Software City Minecraft Launcher
-![GitHub](https://img.shields.io/github/license/Software-City/swc_mclauncher?style=flat-square)
-![GitHub package.json version](https://img.shields.io/github/package-json/v/Software-City/swc_mclauncher?style=flat-square)
-![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/Software-City/swc_mclauncher/dev?style=flat-square)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/Software-City/swc_mclauncher?style=flat-square)
+![GitHub](https://img.shields.io/github/license/Davis-Software/swc_mclauncher?style=flat-square)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/Davis-Software/swc_mclauncher?style=flat-square)
+![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/Davis-Software/swc_mclauncher/dev?style=flat-square)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/Davis-Software/swc_mclauncher?style=flat-square)
 
 Start your Minecraft via a beatiful and easy to use Interface and play all Software City Modpacks.
 (Our modpacks can be found [here](https://projects.software-city.org/resources/minecraft/modded/modpacks))
@@ -13,7 +21,7 @@ Start your Minecraft via a beatiful and easy to use Interface and play all Softw
 
 
 ## Changes
-You can see all changes [here](https://github.com/Software-City/swc_mclauncher/blob/master/CHANGELOG.md)
+You can see all changes [here](https://github.com/Davis-Software/swc_mclauncher/blob/master/CHANGELOG.md)
 
 ## Download
 ### Requirements
@@ -22,18 +30,7 @@ You can see all changes [here](https://github.com/Software-City/swc_mclauncher/b
 - Minecraft account, duh
 
 ### pre-packaged installer
-##### Windows x64
-- [Web-based Installer (Recommended)](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.4/SWC-Minecraft-Launcher-Web-Setup-1.0.4.exe)
-- [Normal Installer](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.4/SWC-Minecraft-Launcher-Setup-1.0.4.exe)
-- [.7z file](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.4/swc_mclauncher-1.0.4-x64.nsis.7z)
-
-##### MacOS
-- [DMG Package (Recommended)](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.3/SWC-Minecraft-Launcher-1.0.3.dmg)
-- [PKG Installer (also ok)](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.3/SWC-Minecraft-Launcher-1.0.3.pkg)
-
-##### Linux
-- [AppImage (Recommended)](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.3/SWC-Minecraft-Launcher-1.0.3.AppImage)
-- [.deb Package](https://github.com/Software-City/swc_mclauncher/releases/download/v1.0.3/swc_mclauncher_1.0.3_amd64.deb)
+[Releases page](https://github.com/Davis-Software/swc_mclauncher/releases)
 
 ### from source
 - Clone and extract the source files to a directory
@@ -48,7 +45,7 @@ In order to activate devMode, you can:
 
 - Edit the file `%APPDATA%\SWC Minecraft Launcher\settings.json` and change `devMode` to `true` at the end of the file
 or
-- Press `Ctrl + Shift + I` in the launcher then in the console enter `setVal("devMode", true)` and restart
+- Press `Ctrl + Shift + I` in the launcher then in the console enter `settings.devMode = true; settings.commit()` and restart
 
 ## Support
 If you have a question you want to ask us, just use our [Support page](https://software-city.org/support) 
