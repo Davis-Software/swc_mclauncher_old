@@ -11,7 +11,7 @@
         "url": "https://projects.software-city.org/projects/electron/swc_mclauncher"
     },
     "name": "swc_mclauncher",
-    "version": "1.0.6",
+    "version": "1.0.8",
     "description": "SWC Minecraft Launcher",
     "repository": "https://github.com/Software-City/swc_mclauncher",
     "license": "MIT",
@@ -27,11 +27,12 @@
         "publishmacOS": "electron-builder --x64 --mac -p always"
     },
     "devDependencies": {
-        "electron": "^8.5.5",
+        "electron": "^12.0.0",
         "electron-builder": "^22.9.1"
     },
     "dependencies": {
         "@popperjs/core": "^2.6.0",
+        "axios": "^0.23.0",
         "bootstrap": "^4.5.3",
         "checksum": "^0.1.1",
         "electron-updater": "^4.3.5",
@@ -51,7 +52,7 @@
             "README.md"
         ],
         "linux": {
-            "target": "AppImage",
+            "target": "deb",
             "icon": "./static/logos/256x256.png",
             "category": "Utility",
             "publish": {
@@ -61,8 +62,8 @@
             }
         },
         "win": {
-            "target": "nsis-web",
-            "icon": ".\\static\\logos\\logo.ico",
+            "target": "nsis",
+            "icon": ".\\static\\logos\\256x256.ico",
             "publish": {
                 "provider": "github",
                 "publishAutoUpdate": true,
@@ -71,7 +72,7 @@
         },
         "mac": {
             "target": "dmg",
-            "icon": "./static/logos/logo.icns",
+            "icon": "./static/logos/256x256.icns",
             "darkModeSupport": true,
             "publish": {
                 "provider": "github",
